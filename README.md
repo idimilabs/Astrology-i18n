@@ -50,14 +50,14 @@ Requirements: Node.js 20+, pnpm or npm.
 
 ```bash
 # Install
-pnpm install
+npm install
 
 # Develop (http://localhost:4321)
-pnpm run dev
+npm run dev
 
 # Build & preview
-pnpm run build
-pnpm run preview
+npm run build
+npm run preview
 ```
 
 ## Project Structure
@@ -210,11 +210,11 @@ Usage
 - Why don’t remote images have sizes inferred?
   - To avoid build‑time network fetches failing your build. Provide `width`/`height` or use local assets.
 - How do I add a new language safely?
-  - Add codes in config, create the locale JSON, and run a full `pnpm run build` to validate all localized routes.
+  - Add codes in config, create the locale JSON, and run a full `npm run build` to validate all localized routes.
 - Can I use npm instead of pnpm?
   - Yes. Replace `pnpm` with `npm` (e.g., `npm run dev`).
 - Where is the search index built?
-  - During `pnpm run build` via `astro-pagefind`.
+  - During `npm run build` via `astro-pagefind`.
 
 ## Comparison
 
