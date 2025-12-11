@@ -193,13 +193,12 @@ const years = [currentYear, currentYear - 1, currentYear - 2];
 />
 
 <script>
-  import { registerPageInit } from '@/utils/page-init';
-
   function initYearSelector() {
     const yearButtons = document.querySelectorAll('#year-selector button[data-year]');
     const calendars = document.querySelectorAll('[data-calendar-year]');
 
     if (yearButtons.length === 0 || calendars.length === 0) {
+      setTimeout(initYearSelector, 100);
       return;
     }
 
@@ -228,48 +227,35 @@ const years = [currentYear, currentYear - 1, currentYear - 2];
       'dark:hover:text-white',
     ];
 
-    function handleYearClick(event: Event) {
-      const button = event.currentTarget as HTMLButtonElement;
-      if (!button) return;
-      const selectedYear = button.getAttribute('data-year');
-
-      yearButtons.forEach((btn) => {
-        if (btn === button) {
-          btn.classList.remove(...inactiveClasses);
-          btn.classList.add(...activeClasses);
-        } else {
-          btn.classList.remove(...activeClasses);
-          btn.classList.add(...inactiveClasses);
-        }
-      });
-
-      calendars.forEach((calendar) => {
-        const calendarYear = calendar.getAttribute('data-calendar-year');
-        if (calendarYear === selectedYear) {
-          calendar.classList.remove('hidden');
-        } else {
-          calendar.classList.add('hidden');
-        }
-      });
-    }
-
-    // 移除旧的事件监听器
     yearButtons.forEach((button) => {
-      button.removeEventListener('click', handleYearClick);
-    });
+      button.addEventListener('click', () => {
+        const selectedYear = button.getAttribute('data-year');
 
-    // 添加新的事件监听器
-    yearButtons.forEach((button) => {
-      button.addEventListener('click', handleYearClick);
-    });
+        yearButtons.forEach((btn) => {
+          if (btn === button) {
+            btn.classList.remove(...inactiveClasses);
+            btn.classList.add(...activeClasses);
+          } else {
+            btn.classList.remove(...activeClasses);
+            btn.classList.add(...inactiveClasses);
+          }
+        });
 
-    // 返回清理函数
-    return () => {
-      yearButtons.forEach((button) => {
-        button.removeEventListener('click', handleYearClick);
+        calendars.forEach((calendar) => {
+          const calendarYear = calendar.getAttribute('data-calendar-year');
+          if (calendarYear === selectedYear) {
+            calendar.classList.remove('hidden');
+          } else {
+            calendar.classList.add('hidden');
+          }
+        });
       });
-    };
+    });
   }
 
-  registerPageInit('yearSelector', initYearSelector);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initYearSelector);
+  } else {
+    initYearSelector();
+  }
 </script>
