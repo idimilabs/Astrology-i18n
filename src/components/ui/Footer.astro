@@ -22,7 +22,7 @@ const twitterHandleRaw = t(resolvedLang, 'site.twitter.site') || '';
 const twitterHandle = String(twitterHandleRaw).replace(/^@/, '');
 const xUrl = twitterHandle ? `https://x.com/${twitterHandle}` : 'https://x.com';
 const githubUrl: string =
-  (Astro.props.githubUrl as string | undefined) ?? 'https://github.com/inotelabs';
+  (Astro.props.githubUrl as string | undefined) ?? 'https://github.com/idimilabs';
 
 const rssUrl: string =
   (Astro.props.rssUrl as string | undefined) ?? getRelativeLocaleUrl(resolvedLang, '/rss.xml');

@@ -2,8 +2,8 @@
 name: "Astro"
 bio: "Sailing through life, entrepreneurship waves, and investing fog."
 socials:
-  - { label: "X", url: "https://x.com/inotelabs" }
-  - { label: "GitHub", url: "https://github.com/inotelabs" }
+  - { label: "X", url: "https://x.com/idimilabs" }
+  - { label: "GitHub", url: "https://github.com/idimilabs" }
   - { label: "Website", url: "https://inote.xyz" }
   - { label: "RSS", url: "https://inote.xyz/en/rss.xml" }
 locales: en
