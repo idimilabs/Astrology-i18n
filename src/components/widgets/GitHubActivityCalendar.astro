@@ -528,10 +528,7 @@ const height = labelHeight + (blockSize + blockMargin) * 7 - blockMargin;
   </div>
   {
     !(hideTotalCount && hideColorLegend) && (
-      <footer
-        class="flex flex-col-reverse gap-y-2 text-sm text-neutral-600 sm:flex-row sm:items-center sm:justify-between dark:text-neutral-400"
-        style={{ width: `${width}px` }}
-      >
+      <footer class="flex flex-col-reverse gap-y-2 text-sm text-neutral-600 sm:flex-row sm:items-center sm:justify-between dark:text-neutral-400">
         {!hideColorLegend && (
           <div class="flex items-center gap-[3px]">
             <span class="mr-1.5">{labels.legend.less}</span>
