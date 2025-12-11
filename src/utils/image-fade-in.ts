@@ -66,11 +66,13 @@ class ImageFadeIn {
 
         // Create debounced observe function
         this.debouncedObserve = this.debounce(() => {
+            this.observeCardContainers();
             this.observeImages();
             this.observeTextElements();
             this.observeCustomElements();
         }, 100);
 
+        this.observeCardContainers();
         this.observeImages();
         this.observeTextElements();
         this.observeCustomElements();
@@ -84,6 +86,48 @@ class ImageFadeIn {
             if (timeout) clearTimeout(timeout);
             timeout = setTimeout(func, wait);
         };
+    }
+
+    private isWithinAnimatedContainer(element: HTMLElement): boolean {
+        // 检查元素是否在已标记淡入的卡片容器内
+        const container = element.closest('.grid > div, .group, .curriculum-item, .architecture-layer, [data-card-container]');
+        return !!(container && container.hasAttribute('data-fade-observed'));
+    }
+
+    private observeCardContainers(): void {
+        if (!this.observer) return;
+
+        const containers = document.querySelectorAll<HTMLElement>(
+            '.grid > div:not([data-fade-observed]), ' +
+            '.group:not([data-fade-observed]), ' +
+            '.curriculum-item:not([data-fade-observed]), ' +
+            '.architecture-layer:not([data-fade-observed])'
+        );
+
+        containers.forEach((container) => {
+            if (this.observedElements.has(container)) return;
+
+            // 检查是否在屏幕内,屏幕内的不需要动画
+            const rect = container.getBoundingClientRect();
+            const isInViewport = (
+                rect.top >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+            );
+
+            if (isInViewport) {
+                this.observedElements.add(container);
+                container.setAttribute('data-fade-observed', 'true');
+                return;
+            }
+
+            // 标记容器为卡片容器
+            container.setAttribute('data-card-container', 'true');
+
+            this.observedElements.add(container);
+            container.setAttribute('data-fade-observed', 'true');
+            this.prepareElement(container);
+            this.observer!.observe(container);
+        });
     }
 
     private observeImages(): void {
@@ -102,6 +146,13 @@ class ImageFadeIn {
         images.forEach((img) => {
             // Skip if already observed
             if (this.observedElements.has(img)) return;
+
+            // 新增: 如果在已动画的容器内,跳过
+            if (this.isWithinAnimatedContainer(img)) {
+                this.observedElements.add(img);
+                img.setAttribute('data-fade-observed', 'true');
+                return;
+            }
 
             const isPriority =
                 img.getAttribute('fetchpriority') === 'high' ||
@@ -221,6 +272,13 @@ class ImageFadeIn {
 
         textElements.forEach((element) => {
             if (this.observedElements.has(element)) return;
+
+            // 新增: 如果在已动画的容器内,跳过
+            if (this.isWithinAnimatedContainer(element)) {
+                this.observedElements.add(element);
+                element.setAttribute('data-fade-observed', 'true');
+                return;
+            }
 
             this.observedElements.add(element);
             element.setAttribute('data-fade-observed', 'true');
@@ -350,6 +408,7 @@ class ImageFadeIn {
     private setupViewTransitions(): void {
         document.addEventListener('astro:page-load', () => {
             this.imageCount = 0;
+            this.observeCardContainers();
             this.observeImages();
             this.observeTextElements();
             this.observeCustomElements();
