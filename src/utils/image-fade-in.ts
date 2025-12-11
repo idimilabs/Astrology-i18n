@@ -190,6 +190,8 @@ class ImageFadeIn {
                 this.observer?.unobserve(element);
                 element.removeAttribute('data-fade-index');
                 element.style.willChange = 'auto';
+                element.style.transition = '';
+                element.style.transform = '';
             }, this.options.duration);
         }, totalDelay);
     }
