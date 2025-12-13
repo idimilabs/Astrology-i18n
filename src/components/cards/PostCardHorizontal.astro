@@ -56,7 +56,7 @@ const containerAttrs = href ? { href } : {};
           priority={priority}
           sizes="100vw"
         />
-        <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 via-black/40 to-black/80"></div>
+        <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 via-black/40 to-black/80" />
         <div class="absolute inset-x-0 bottom-0 p-4">
           <div class="flex items-center justify-between text-xs text-white/85">
             <span>{date ? formatDate(date, lang) : ''}</span>
@@ -80,7 +80,7 @@ const containerAttrs = href ? { href } : {};
             fit="cover"
             position="center"
             priority={priority}
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 67vw, 860px"
+            sizes="(max-width: 1152px) 67vw, 736px"
           />
         </div>
         <div class="col-span-1 flex h-full flex-col p-4">
