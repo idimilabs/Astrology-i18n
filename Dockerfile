@@ -2,7 +2,7 @@
 # 阶段 1: 构建阶段 (Builder)
 # ==========================================
 # 使用 Node 22-alpine 确保环境轻量且满足 Astro 5 要求
-FROM node:22-alpine AS builder
+FROM node:25-alpine AS builder
 WORKDIR /app
 
 # 安装必要的系统库（libc6-compat 是 sharp 等图片库在 alpine 下运行的必需品）
@@ -24,7 +24,7 @@ RUN --mount=type=cache,target=/app/.astro_cache \
 # ==========================================
 # 阶段 2: 运行与增量上传阶段 (Runner)
 # ==========================================
-FROM node:22-alpine AS runner
+FROM node:25-alpine AS runner
 WORKDIR /app
 
 # 1. 在运行环境安装上传工具 EdgeOne CLI
