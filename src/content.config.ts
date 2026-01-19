@@ -3,7 +3,7 @@ import { glob } from 'astro/loaders';
 
 const LANGS = ['zh', 'en', 'fr', 'es', 'ru', 'ja', 'ko', 'pt', 'de', 'id'] as const;
 export const SUPPORTED_LANGS = LANGS;
-export const DEFAULT_LANG = 'zh';
+export const DEFAULT_LANG = 'en';
 
 const post = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx,markdown}', base: './src/content/posts' }),

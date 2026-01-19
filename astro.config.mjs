@@ -21,7 +21,7 @@ export default defineConfig({
   },
 
   i18n: {
-    defaultLocale: 'zh',
+    defaultLocale: 'en',
     locales: ['zh', 'en', 'fr', 'es', 'ru', 'ja', 'ko', 'pt', 'de', 'id'],
     routing: 'manual',
   },
@@ -43,7 +43,7 @@ export default defineConfig({
     }),
     sitemap({
       i18n: {
-        defaultLocale: 'zh',
+        defaultLocale: 'en',
         locales: {
           zh: 'zh-CN',
           en: 'en-US',

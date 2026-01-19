@@ -13,7 +13,7 @@ export const SUPPORTED_LANGS = [
 
 export type Lang = (typeof SUPPORTED_LANGS)[number];
 
-export const DEFAULT_LANG: Lang = 'zh';
+export const DEFAULT_LANG: Lang = 'en';
 
 export function toAbsolute(lang: Lang, inputPath = '/'): string {
   const raw = String(inputPath);
