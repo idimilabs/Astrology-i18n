@@ -21,7 +21,7 @@ This is a placeholder article demonstrating various Markdown elements.
 
 ## Main Content
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Here's an example of **bold text** and *italic text*.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Here's an example of **bold text** and _italic text_.
 
 ### Subsection
 

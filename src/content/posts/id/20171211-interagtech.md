@@ -21,7 +21,7 @@ Ini adalah artikel placeholder yang mendemonstrasikan berbagai elemen Markdown.
 
 ## Konten Utama
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Berikut adalah contoh **teks tebal** dan *teks miring*.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Berikut adalah contoh **teks tebal** dan _teks miring_.
 
 ### Subbagian
 

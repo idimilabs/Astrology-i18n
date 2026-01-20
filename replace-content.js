@@ -7,13 +7,13 @@ const __dirname = path.dirname(__filename);
 
 // Language-specific placeholder templates
 const placeholders = {
-    de: {
-        title: 'Platzhalter Titel',
-        description: 'Dies ist eine kurze Platzhalterbeschreibung des Artikelinhalts.',
-        category: 'Investition',
-        tags: ['Strategie'],
-        heroImageAlt: 'Platzhalter Bildbeschreibung',
-        content: `## Einführung
+  de: {
+    title: 'Platzhalter Titel',
+    description: 'Dies ist eine kurze Platzhalterbeschreibung des Artikelinhalts.',
+    category: 'Investition',
+    tags: ['Strategie'],
+    heroImageAlt: 'Platzhalter Bildbeschreibung',
+    content: `## Einführung
 
 Dies ist ein Platzhalter-Artikel, der verschiedene Markdown-Elemente demonstriert.
 
@@ -42,15 +42,15 @@ function beispiel() {
 
 ## Fazit
 
-Dies ist der Schlussabsatz des Platzhalter-Artikels.`
-    },
-    en: {
-        title: 'Placeholder Title',
-        description: 'This is a brief placeholder description of the article content.',
-        category: 'Investment',
-        tags: ['Strategy'],
-        heroImageAlt: 'Placeholder image description',
-        content: `## Introduction
+Dies ist der Schlussabsatz des Platzhalter-Artikels.`,
+  },
+  en: {
+    title: 'Placeholder Title',
+    description: 'This is a brief placeholder description of the article content.',
+    category: 'Investment',
+    tags: ['Strategy'],
+    heroImageAlt: 'Placeholder image description',
+    content: `## Introduction
 
 This is a placeholder article demonstrating various Markdown elements.
 
@@ -79,15 +79,16 @@ function example() {
 
 ## Conclusion
 
-This is the concluding paragraph of the placeholder article.`
-    },
-    es: {
-        title: 'Título de marcador de posición',
-        description: 'Esta es una breve descripción de marcador de posición del contenido del artículo.',
-        category: 'Inversión',
-        tags: ['Estrategia'],
-        heroImageAlt: 'Descripción de imagen de marcador de posición',
-        content: `## Introducción
+This is the concluding paragraph of the placeholder article.`,
+  },
+  es: {
+    title: 'Título de marcador de posición',
+    description:
+      'Esta es una breve descripción de marcador de posición del contenido del artículo.',
+    category: 'Inversión',
+    tags: ['Estrategia'],
+    heroImageAlt: 'Descripción de imagen de marcador de posición',
+    content: `## Introducción
 
 Este es un artículo de marcador de posición que demuestra varios elementos de Markdown.
 
@@ -116,15 +117,15 @@ function ejemplo() {
 
 ## Conclusión
 
-Este es el párrafo final del artículo de marcador de posición.`
-    },
-    fr: {
-        title: 'Titre de l\'espace réservé',
-        description: 'Ceci est une brève description de l\'espace réservé du contenu de l\'article.',
-        category: 'Investissement',
-        tags: ['Stratégie'],
-        heroImageAlt: 'Description de l\'image de l\'espace réservé',
-        content: `## Introduction
+Este es el párrafo final del artículo de marcador de posición.`,
+  },
+  fr: {
+    title: "Titre de l'espace réservé",
+    description: "Ceci est une brève description de l'espace réservé du contenu de l'article.",
+    category: 'Investissement',
+    tags: ['Stratégie'],
+    heroImageAlt: "Description de l'image de l'espace réservé",
+    content: `## Introduction
 
 Ceci est un article d'espace réservé démontrant divers éléments Markdown.
 
@@ -153,15 +154,15 @@ function exemple() {
 
 ## Conclusion
 
-Ceci est le paragraphe final de l'article d'espace réservé.`
-    },
-    id: {
-        title: 'Judul Placeholder',
-        description: 'Ini adalah deskripsi placeholder singkat dari konten artikel.',
-        category: 'Investasi',
-        tags: ['Strategi'],
-        heroImageAlt: 'Deskripsi gambar placeholder',
-        content: `## Pendahuluan
+Ceci est le paragraphe final de l'article d'espace réservé.`,
+  },
+  id: {
+    title: 'Judul Placeholder',
+    description: 'Ini adalah deskripsi placeholder singkat dari konten artikel.',
+    category: 'Investasi',
+    tags: ['Strategi'],
+    heroImageAlt: 'Deskripsi gambar placeholder',
+    content: `## Pendahuluan
 
 Ini adalah artikel placeholder yang mendemonstrasikan berbagai elemen Markdown.
 
@@ -190,15 +191,15 @@ function contoh() {
 
 ## Kesimpulan
 
-Ini adalah paragraf penutup dari artikel placeholder.`
-    },
-    ja: {
-        title: 'プレースホルダータイトル',
-        description: 'これは記事内容の簡単なプレースホルダー説明です。',
-        category: '投資',
-        tags: ['戦略'],
-        heroImageAlt: 'プレースホルダー画像の説明',
-        content: `## はじめに
+Ini adalah paragraf penutup dari artikel placeholder.`,
+  },
+  ja: {
+    title: 'プレースホルダータイトル',
+    description: 'これは記事内容の簡単なプレースホルダー説明です。',
+    category: '投資',
+    tags: ['戦略'],
+    heroImageAlt: 'プレースホルダー画像の説明',
+    content: `## はじめに
 
 これは様々なMarkdown要素を示すプレースホルダー記事です。
 
@@ -227,15 +228,15 @@ function example() {
 
 ## 結論
 
-これはプレースホルダー記事の締めくくりの段落です。`
-    },
-    ko: {
-        title: '자리 표시자 제목',
-        description: '이것은 기사 내용에 대한 간단한 자리 표시자 설명입니다.',
-        category: '투자',
-        tags: ['전략'],
-        heroImageAlt: '자리 표시자 이미지 설명',
-        content: `## 소개
+これはプレースホルダー記事の締めくくりの段落です。`,
+  },
+  ko: {
+    title: '자리 표시자 제목',
+    description: '이것은 기사 내용에 대한 간단한 자리 표시자 설명입니다.',
+    category: '투자',
+    tags: ['전략'],
+    heroImageAlt: '자리 표시자 이미지 설명',
+    content: `## 소개
 
 다양한 Markdown 요소를 보여주는 자리 표시자 기사입니다.
 
@@ -264,15 +265,15 @@ function example() {
 
 ## 결론
 
-자리 표시자 기사의 마무리 단락입니다.`
-    },
-    pt: {
-        title: 'Título do espaço reservado',
-        description: 'Esta é uma breve descrição do espaço reservado do conteúdo do artigo.',
-        category: 'Investimento',
-        tags: ['Estratégia'],
-        heroImageAlt: 'Descrição da imagem do espaço reservado',
-        content: `## Introdução
+자리 표시자 기사의 마무리 단락입니다.`,
+  },
+  pt: {
+    title: 'Título do espaço reservado',
+    description: 'Esta é uma breve descrição do espaço reservado do conteúdo do artigo.',
+    category: 'Investimento',
+    tags: ['Estratégia'],
+    heroImageAlt: 'Descrição da imagem do espaço reservado',
+    content: `## Introdução
 
 Este é um artigo de espaço reservado demonstrando vários elementos Markdown.
 
@@ -301,15 +302,15 @@ function exemplo() {
 
 ## Conclusão
 
-Este é o parágrafo final do artigo de espaço reservado.`
-    },
-    ru: {
-        title: 'Заголовок-заполнитель',
-        description: 'Это краткое описание-заполнитель содержания статьи.',
-        category: 'Инвестиции',
-        tags: ['Стратегия'],
-        heroImageAlt: 'Описание изображения-заполнителя',
-        content: `## Введение
+Este é o parágrafo final do artigo de espaço reservado.`,
+  },
+  ru: {
+    title: 'Заголовок-заполнитель',
+    description: 'Это краткое описание-заполнитель содержания статьи.',
+    category: 'Инвестиции',
+    tags: ['Стратегия'],
+    heroImageAlt: 'Описание изображения-заполнителя',
+    content: `## Введение
 
 Это статья-заполнитель, демонстрирующая различные элементы Markdown.
 
@@ -338,15 +339,15 @@ function example() {
 
 ## Заключение
 
-Это заключительный абзац статьи-заполнителя.`
-    },
-    zh: {
-        title: '占位符标题',
-        description: '这里是关于文章内容的简要占位符描述。',
-        category: '投资',
-        tags: ['策略'],
-        heroImageAlt: '占位符图片背景描述',
-        content: `## 介绍
+Это заключительный абзац статьи-заполнителя.`,
+  },
+  zh: {
+    title: '占位符标题',
+    description: '这里是关于文章内容的简要占位符描述。',
+    category: '投资',
+    tags: ['策略'],
+    heroImageAlt: '占位符图片背景描述',
+    content: `## 介绍
 
 这是一篇展示各种 Markdown 元素的占位符文章。
 
@@ -375,28 +376,30 @@ function example() {
 
 ## 结论
 
-这是占位符文章的结尾段落。`
-    }
+这是占位符文章的结尾段落。`,
+  },
 };
 
 // Function to generate markdown content with placeholders
 function generateMarkdownContent(lang, originalContent) {
-    const placeholder = placeholders[lang];
+  const placeholder = placeholders[lang];
 
-    // Extract existing frontmatter values we want to preserve
-    const pubDateMatch = originalContent.match(/pubDate:\s*(.+)/);
-    const authorMatch = originalContent.match(/author:\s*"?(.+?)"?\s*$/m);
-    const heroImageMatch = originalContent.match(/heroImage:\s*"(.+)"/);
-    const draftMatch = originalContent.match(/draft:\s*(.+)/);
-    const featuredMatch = originalContent.match(/featured:\s*(.+)/);
+  // Extract existing frontmatter values we want to preserve
+  const pubDateMatch = originalContent.match(/pubDate:\s*(.+)/);
+  const authorMatch = originalContent.match(/author:\s*"?(.+?)"?\s*$/m);
+  const heroImageMatch = originalContent.match(/heroImage:\s*"(.+)"/);
+  const draftMatch = originalContent.match(/draft:\s*(.+)/);
+  const featuredMatch = originalContent.match(/featured:\s*(.+)/);
 
-    const pubDate = pubDateMatch ? pubDateMatch[1].trim() : '2016-06-05';
-    const author = authorMatch ? authorMatch[1].trim() : 'Astro';
-    const heroImage = heroImageMatch ? heroImageMatch[1] : 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d';
-    const draft = draftMatch ? draftMatch[1].trim() : 'false';
-    const featured = featuredMatch ? featuredMatch[1].trim() : 'false';
+  const pubDate = pubDateMatch ? pubDateMatch[1].trim() : '2016-06-05';
+  const author = authorMatch ? authorMatch[1].trim() : 'Astro';
+  const heroImage = heroImageMatch
+    ? heroImageMatch[1]
+    : 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d';
+  const draft = draftMatch ? draftMatch[1].trim() : 'false';
+  const featured = featuredMatch ? featuredMatch[1].trim() : 'false';
 
-    return `---
+  return `---
 title: "${placeholder.title}"
 description: "${placeholder.description}"
 category: "${placeholder.category}"
@@ -417,26 +420,26 @@ ${placeholder.content}
 
 // Function to process all markdown files in a language folder
 function processLanguageFolder(lang) {
-    const folderPath = path.join(__dirname, 'src', 'content', 'posts', lang);
+  const folderPath = path.join(__dirname, 'src', 'content', 'posts', lang);
 
-    if (!fs.existsSync(folderPath)) {
-        console.log(`Folder not found: ${folderPath}`);
-        return;
-    }
+  if (!fs.existsSync(folderPath)) {
+    console.log(`Folder not found: ${folderPath}`);
+    return;
+  }
 
-    const files = fs.readdirSync(folderPath).filter(file => file.endsWith('.md'));
+  const files = fs.readdirSync(folderPath).filter((file) => file.endsWith('.md'));
 
-    console.log(`Processing ${files.length} files in ${lang} folder...`);
+  console.log(`Processing ${files.length} files in ${lang} folder...`);
 
-    files.forEach(file => {
-        const filePath = path.join(folderPath, file);
-        const originalContent = fs.readFileSync(filePath, 'utf-8');
-        const newContent = generateMarkdownContent(lang, originalContent);
+  files.forEach((file) => {
+    const filePath = path.join(folderPath, file);
+    const originalContent = fs.readFileSync(filePath, 'utf-8');
+    const newContent = generateMarkdownContent(lang, originalContent);
 
-        fs.writeFileSync(filePath, newContent, 'utf-8');
-    });
+    fs.writeFileSync(filePath, newContent, 'utf-8');
+  });
 
-    console.log(`✓ Completed ${lang} folder`);
+  console.log(`✓ Completed ${lang} folder`);
 }
 
 // Main execution
@@ -444,8 +447,8 @@ const languages = ['de', 'en', 'es', 'fr', 'id', 'ja', 'ko', 'pt', 'ru', 'zh'];
 
 console.log('Starting markdown content replacement...\n');
 
-languages.forEach(lang => {
-    processLanguageFolder(lang);
+languages.forEach((lang) => {
+  processLanguageFolder(lang);
 });
 
 console.log('\n✓ All files processed successfully!');

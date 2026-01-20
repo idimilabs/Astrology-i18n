@@ -21,7 +21,7 @@ Este es un artículo de marcador de posición que demuestra varios elementos de 
 
 ## Contenido Principal
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aquí hay un ejemplo de **texto en negrita** y *texto en cursiva*.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aquí hay un ejemplo de **texto en negrita** y _texto en cursiva_.
 
 ### Subsección
 

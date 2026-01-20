@@ -21,7 +21,7 @@ locales: ru
 
 ## Основное Содержание
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Вот пример **жирного текста** и *курсивного текста*.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Вот пример **жирного текста** и _курсивного текста_.
 
 ### Подраздел
 

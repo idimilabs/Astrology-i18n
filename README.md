@@ -19,29 +19,31 @@ A professional, multilingual photo-and-prose theme built with **Astro 5** and **
 
 ## ⚡️ Highlights
 
--   **Deep Internationalization (i18n)**: Native support for language-prefixed routes (`/[lang]/`), centralized JSON dictionaries, and automatic fallback handling.
--   **Content Collections**: Type-safe frontmatter for Posts, Pages, and Authors.
--   **Performance First**: High Lighthouse scores with optimized assets, link prefetching, and minimal client-side JS.
--   **Astro 5 & Tailwind 4**: Built on the latest, cutting-edge stack for maximum developer experience.
--   **SEO Optimized**: Built-in canonical URLs, Open Graph tags, JSON-LD, sitemaps, and RSS feeds per locale.
--   **Full-Text Search**: Fast, client-side search powered by `astro-pagefind`.
+- **Deep Internationalization (i18n)**: Native support for language-prefixed routes (`/[lang]/`), centralized JSON dictionaries, and automatic fallback handling.
+- **Content Collections**: Type-safe frontmatter for Posts, Pages, and Authors.
+- **Performance First**: High Lighthouse scores with optimized assets, link prefetching, and minimal client-side JS.
+- **Astro 5 & Tailwind 4**: Built on the latest, cutting-edge stack for maximum developer experience.
+- **SEO Optimized**: Built-in canonical URLs, Open Graph tags, JSON-LD, sitemaps, and RSS feeds per locale.
+- **Full-Text Search**: Fast, client-side search powered by `astro-pagefind`.
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
--   **Node.js**: v20.0.0 or higher
--   **pnpm**: Recommended package manager
+- **Node.js**: v20.0.0 or higher
+- **pnpm**: Recommended package manager
 
 ### Installation
 
 1.  Clone the repository:
+
     ```bash
     git clone https://github.com/idimilabs/Astrology-i18n.git
     cd Astrology-i18n
     ```
 
 2.  Install dependencies:
+
     ```bash
     pnpm install
     ```
@@ -138,6 +140,16 @@ The theme includes **Partytown** integration for performance-friendly analytics.
 ### Search
 
 Search is powered by **Pagefind**. The index is built automatically when you run `pnpm run build`.
+
+### Code Styling
+
+The project uses **Prettier** for code formatting, configured via `.prettierrc`.
+
+To format the codebase:
+
+```bash
+pnpm run format
+```
 
 ## 🤝 Contributing
 

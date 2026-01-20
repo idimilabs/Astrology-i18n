@@ -8,7 +8,9 @@
    ======================================== */
 
 @theme {
-  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
+  --font-sans:
+    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
   --animate-scale-up: scale-up 0.3s ease forwards;
   --animate-scale-down: scale-down 0.3s ease forwards;
   --animate-fade-in-up: fade-in-up 0.5s ease forwards;
@@ -167,42 +169,42 @@
    ======================================== */
 
 .category-tag {
-  @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white transition-opacity duration-150 hover:opacity-90;
+  @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold tracking-wide text-white uppercase transition-opacity duration-150 hover:opacity-90;
 }
 
-.category-tag[data-category="technology"],
-.category-tag[data-category="tech"] {
+.category-tag[data-category='technology'],
+.category-tag[data-category='tech'] {
   @apply bg-gradient-to-br from-indigo-500 to-violet-500;
 }
 
-.category-tag[data-category="lifestyle"],
-.category-tag[data-category="life"] {
+.category-tag[data-category='lifestyle'],
+.category-tag[data-category='life'] {
   @apply bg-gradient-to-br from-pink-500 to-rose-500;
 }
 
-.category-tag[data-category="business"],
-.category-tag[data-category="finance"] {
+.category-tag[data-category='business'],
+.category-tag[data-category='finance'] {
   @apply bg-gradient-to-br from-emerald-500 to-teal-500;
 }
 
-.category-tag[data-category="travel"] {
+.category-tag[data-category='travel'] {
   @apply bg-gradient-to-br from-amber-500 to-orange-500;
 }
 
-.category-tag[data-category="food"] {
+.category-tag[data-category='food'] {
   @apply bg-gradient-to-br from-red-500 to-red-600;
 }
 
-.category-tag[data-category="health"] {
+.category-tag[data-category='health'] {
   @apply bg-gradient-to-br from-green-500 to-green-600;
 }
 
-.category-tag[data-category="art"],
-.category-tag[data-category="design"] {
+.category-tag[data-category='art'],
+.category-tag[data-category='design'] {
   @apply bg-gradient-to-br from-purple-500 to-violet-600;
 }
 
-.category-tag[data-category="music"] {
+.category-tag[data-category='music'] {
   @apply bg-gradient-to-br from-cyan-500 to-cyan-600;
 }
 
@@ -240,7 +242,6 @@ html {
    ======================================== */
 
 @media (prefers-reduced-motion: reduce) {
-
   .blur-placeholder,
   .lazy-fade-in {
     animation: none;
@@ -360,6 +361,6 @@ html {
 }
 
 :root:not(.dark) .nav-dropdown {
-  background: rgba(255, 255, 255, 0.90);
+  background: rgba(255, 255, 255, 0.9);
   @apply border border-black/10 shadow-xl;
 }

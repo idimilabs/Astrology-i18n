@@ -21,7 +21,7 @@ Dies ist ein Platzhalter-Artikel, der verschiedene Markdown-Elemente demonstrier
 
 ## Hauptinhalt
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Hier ist ein Beispiel für **fettgedruckten Text** und *kursiven Text*.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Hier ist ein Beispiel für **fettgedruckten Text** und _kursiven Text_.
 
 ### Unterabschnitt
 

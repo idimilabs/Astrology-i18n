@@ -21,7 +21,7 @@ Ceci est un article d'espace réservé démontrant divers éléments Markdown.
 
 ## Contenu Principal
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Voici un exemple de **texte en gras** et *texte en italique*.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Voici un exemple de **texte en gras** et _texte en italique_.
 
 ### Sous-section
 

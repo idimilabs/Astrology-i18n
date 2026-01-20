@@ -21,7 +21,7 @@ Este é um artigo de espaço reservado demonstrando vários elementos Markdown.
 
 ## Conteúdo Principal
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aqui está um exemplo de **texto em negrito** e *texto em itálico*.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aqui está um exemplo de **texto em negrito** e _texto em itálico_.
 
 ### Subseção
 
