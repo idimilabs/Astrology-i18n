@@ -5,9 +5,7 @@
   "packageManager": "pnpm@10.28.0",
   "pnpm": {
     "onlyBuiltDependencies": [
-      "sharp"
-    ],
-    "ignoredBuiltDependencies": [
+      "sharp",
       "esbuild"
     ]
   },
