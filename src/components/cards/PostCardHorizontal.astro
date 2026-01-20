@@ -13,8 +13,6 @@ interface Props {
   description?: string;
   date?: string | Date;
   category?: string;
-  author?: string;
-  readingTime?: string;
   lang?: Lang;
 
   priority?: boolean;
@@ -31,11 +29,9 @@ const {
   description,
   date,
   category,
-  author,
-  readingTime,
   lang = 'zh',
   priority = false,
-  aspectClass = 'aspect-[2.3/1]', // Ambilas featured article: ultra-wide ratio
+  aspectClass = 'aspect-[16/9]',
   class: className,
   loading = false,
 } = Astro.props as Props;
