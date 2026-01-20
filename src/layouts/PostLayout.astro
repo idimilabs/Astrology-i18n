@@ -83,7 +83,6 @@ const headerProps = {
     { name: title, item: Astro.url.href },
   ],
 };
-const pagePath = Astro.url?.pathname ?? '';
 ---
 
 <MainLayout lang={resolvedLang}>
@@ -209,14 +208,6 @@ const pagePath = Astro.url?.pathname ?? '';
                 </a>
               ) : (
                 <span />
-              )}
-              {pagePath && (
-                <span
-                  class="waline-pageview-count inline-flex items-center rounded-full bg-neutral-100 px-2.5 py-0.5 text-xs font-medium text-neutral-700 no-underline hover:bg-neutral-200 hover:no-underline focus:no-underline dark:bg-neutral-800 dark:text-neutral-300"
-                  data-path={pagePath}
-                >
-                  --
-                </span>
               )}
             </div>
           </div>
