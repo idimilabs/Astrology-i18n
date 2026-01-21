@@ -38,7 +38,7 @@ const TEXTS = SUPPORTED_LANGS.reduce<
 
 <LandingLayout lang={lang} title={title} description={message} canonical={null} noindex>
   <Prose>
-    <p id="i18n-search-hint" class="text-center text-sm text-neutral-500 dark:text-neutral-400">
+    <p id="i18n-search-hint" class="text-center text-sm text-gray-500 dark:text-gray-400">
       {searchHint}
     </p>
   </Prose>
@@ -54,7 +54,7 @@ const TEXTS = SUPPORTED_LANGS.reduce<
       <a
         id="i18n-home-link-1"
         href={toAbsolute(lang, '/')}
-        class="inline-flex items-center gap-2 rounded-md border border-neutral-200/70 px-3 py-1.5 text-sm text-neutral-700 hover:bg-neutral-50 dark:border-neutral-800/70 dark:text-neutral-300 dark:hover:bg-neutral-800"
+        class="inline-flex items-center gap-2 rounded-md border border-gray-200/70 px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50 dark:border-gray-800/70 dark:text-gray-300 dark:hover:bg-gray-800"
       >
         <span aria-hidden>←</span>
         <span id="i18n-back">{t(lang, 'notFound.backToHome')}</span>
@@ -62,7 +62,7 @@ const TEXTS = SUPPORTED_LANGS.reduce<
       <a
         id="i18n-home-link-2"
         href={toAbsolute(lang, '/posts/')}
-        class="inline-flex items-center gap-2 rounded-md border border-neutral-200/70 px-3 py-1.5 text-sm text-neutral-700 hover:bg-neutral-50 dark:border-neutral-800/70 dark:text-neutral-300 dark:hover:bg-neutral-800"
+        class="inline-flex items-center gap-2 rounded-md border border-gray-200/70 px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50 dark:border-gray-800/70 dark:text-gray-300 dark:hover:bg-gray-800"
       >
         <span aria-hidden>🧭</span>
         <span id="i18n-browse">{t(lang, 'notFound.browsePosts')}</span>

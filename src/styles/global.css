@@ -293,16 +293,16 @@ html {
   @apply border-t border-black/10;
 }
 
-:root:not(.dark) .mobile-nav-glass .text-neutral-100 {
-  @apply text-neutral-950;
+:root:not(.dark) .mobile-nav-glass .text-gray-100 {
+  @apply text-gray-950;
 }
 
-:root:not(.dark) .mobile-nav-glass .text-neutral-300 {
-  @apply text-neutral-700;
+:root:not(.dark) .mobile-nav-glass .text-gray-300 {
+  @apply text-gray-700;
 }
 
-:root:not(.dark) .mobile-nav-glass .text-neutral-400 {
-  @apply text-neutral-500;
+:root:not(.dark) .mobile-nav-glass .text-gray-400 {
+  @apply text-gray-500;
 }
 
 :root:not(.dark) .mobile-nav-glass .border-white\/10 {
@@ -318,7 +318,7 @@ html {
 }
 
 :root:not(.dark) .mobile-nav-glass .hover\:text-white:hover {
-  @apply text-neutral-950;
+  @apply text-gray-950;
 }
 
 /* ========================================
@@ -343,11 +343,11 @@ html {
 }
 
 :root:not(.dark) .nav-link {
-  @apply text-neutral-950/75;
+  @apply text-gray-950/75;
 }
 
 :root:not(.dark) .nav-link:hover {
-  @apply text-neutral-950;
+  @apply text-gray-950;
 }
 
 /* ========================================

@@ -66,19 +66,19 @@ const items = computePages(page.currentPage, page.lastPage, win);
             {page.url.prev ? (
               <a
                 href={page.url.prev}
-                class="inline-flex items-center rounded-lg bg-white/80 px-3 py-1.5 text-neutral-950 shadow-sm ring-1 ring-black/5 backdrop-blur-md transition-all hover:bg-white dark:bg-neutral-900/50 dark:text-neutral-200 dark:ring-white/10 dark:hover:bg-neutral-800/80"
+                class="inline-flex items-center rounded-lg bg-white/80 px-3 py-1.5 text-gray-950 shadow-sm ring-1 ring-black/5 backdrop-blur-md transition-all hover:bg-white dark:bg-gray-900/50 dark:text-gray-200 dark:ring-white/10 dark:hover:bg-gray-800/80"
                 aria-label="Previous"
               >
                 ‹
               </a>
             ) : (
-              <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-neutral-100/50 text-neutral-400 ring-1 ring-neutral-200/50 dark:bg-neutral-800/50 dark:text-neutral-600 dark:ring-neutral-700/50">
+              <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gray-100/50 text-gray-400 ring-1 ring-gray-200/50 dark:bg-gray-800/50 dark:text-gray-600 dark:ring-gray-700/50">
                 ‹
               </span>
             )}
           </li>
           <li>
-            <span class="min-w-[4.5rem] text-center text-neutral-700 dark:text-neutral-200">
+            <span class="min-w-[4.5rem] text-center text-gray-700 dark:text-gray-200">
               {page.currentPage} / {page.lastPage}
             </span>
           </li>
@@ -86,13 +86,13 @@ const items = computePages(page.currentPage, page.lastPage, win);
             {page.url.next ? (
               <a
                 href={page.url.next}
-                class="inline-flex items-center rounded-lg bg-white/80 px-3 py-1.5 text-neutral-950 shadow-sm ring-1 ring-black/5 backdrop-blur-md transition-all hover:bg-white dark:bg-neutral-900/50 dark:text-neutral-200 dark:ring-white/10 dark:hover:bg-neutral-800/80"
+                class="inline-flex items-center rounded-lg bg-white/80 px-3 py-1.5 text-gray-950 shadow-sm ring-1 ring-black/5 backdrop-blur-md transition-all hover:bg-white dark:bg-gray-900/50 dark:text-gray-200 dark:ring-white/10 dark:hover:bg-gray-800/80"
                 aria-label="Next"
               >
                 ›
               </a>
             ) : (
-              <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-neutral-100/50 text-neutral-400 ring-1 ring-neutral-200/50 dark:bg-neutral-800/50 dark:text-neutral-600 dark:ring-neutral-700/50">
+              <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gray-100/50 text-gray-400 ring-1 ring-gray-200/50 dark:bg-gray-800/50 dark:text-gray-600 dark:ring-gray-700/50">
                 ›
               </span>
             )}
@@ -109,12 +109,12 @@ const items = computePages(page.currentPage, page.lastPage, win);
             {page.url.first ? (
               <a
                 href={page.url.first}
-                class="inline-flex items-center rounded-lg bg-white/80 px-3 py-1.5 text-neutral-950 shadow-sm ring-1 ring-black/5 backdrop-blur-md transition-all hover:bg-white dark:bg-neutral-900/50 dark:text-neutral-200 dark:ring-white/10 dark:hover:bg-neutral-800/80"
+                class="inline-flex items-center rounded-lg bg-white/80 px-3 py-1.5 text-gray-950 shadow-sm ring-1 ring-black/5 backdrop-blur-md transition-all hover:bg-white dark:bg-gray-900/50 dark:text-gray-200 dark:ring-white/10 dark:hover:bg-gray-800/80"
               >
                 «
               </a>
             ) : (
-              <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-neutral-100/50 text-neutral-400 ring-1 ring-neutral-200/50 dark:bg-neutral-800/50 dark:text-neutral-600 dark:ring-neutral-700/50">
+              <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gray-100/50 text-gray-400 ring-1 ring-gray-200/50 dark:bg-gray-800/50 dark:text-gray-600 dark:ring-gray-700/50">
                 «
               </span>
             )}
@@ -124,12 +124,12 @@ const items = computePages(page.currentPage, page.lastPage, win);
             {page.url.prev ? (
               <a
                 href={page.url.prev}
-                class="inline-flex items-center rounded-lg bg-white/80 px-3 py-1.5 text-neutral-950 shadow-sm ring-1 ring-black/5 backdrop-blur-md transition-all hover:bg-white dark:bg-neutral-900/50 dark:text-neutral-200 dark:ring-white/10 dark:hover:bg-neutral-800/80"
+                class="inline-flex items-center rounded-lg bg-white/80 px-3 py-1.5 text-gray-950 shadow-sm ring-1 ring-black/5 backdrop-blur-md transition-all hover:bg-white dark:bg-gray-900/50 dark:text-gray-200 dark:ring-white/10 dark:hover:bg-gray-800/80"
               >
                 ‹
               </a>
             ) : (
-              <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-neutral-100/50 text-neutral-400 ring-1 ring-neutral-200/50 dark:bg-neutral-800/50 dark:text-neutral-600 dark:ring-neutral-700/50">
+              <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gray-100/50 text-gray-400 ring-1 ring-gray-200/50 dark:bg-gray-800/50 dark:text-gray-600 dark:ring-gray-700/50">
                 ‹
               </span>
             )}
@@ -138,15 +138,15 @@ const items = computePages(page.currentPage, page.lastPage, win);
           {items.map((it) => (
             <li>
               {it === '…' ? (
-                <span class="px-2 text-neutral-400">…</span>
+                <span class="px-2 text-gray-400">…</span>
               ) : it === page.currentPage ? (
-                <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-neutral-900/80 text-white shadow-md backdrop-blur-md dark:bg-white/90 dark:text-neutral-950">
+                <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gray-900/80 text-white shadow-md backdrop-blur-md dark:bg-white/90 dark:text-gray-950">
                   {it}
                 </span>
               ) : (
                 <a
                   href={hrefFor(it as number)}
-                  class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/80 text-neutral-950 shadow-sm ring-1 ring-black/5 backdrop-blur-md transition-all hover:bg-white dark:bg-neutral-900/50 dark:text-neutral-200 dark:ring-white/10 dark:hover:bg-neutral-800/80"
+                  class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/80 text-gray-950 shadow-sm ring-1 ring-black/5 backdrop-blur-md transition-all hover:bg-white dark:bg-gray-900/50 dark:text-gray-200 dark:ring-white/10 dark:hover:bg-gray-800/80"
                 >
                   {it}
                 </a>
@@ -158,12 +158,12 @@ const items = computePages(page.currentPage, page.lastPage, win);
             {page.url.next ? (
               <a
                 href={page.url.next}
-                class="inline-flex items-center rounded-lg bg-white/80 px-3 py-1.5 text-neutral-950 shadow-sm ring-1 ring-black/5 backdrop-blur-md transition-all hover:bg-white dark:bg-neutral-900/50 dark:text-neutral-200 dark:ring-white/10 dark:hover:bg-neutral-800/80"
+                class="inline-flex items-center rounded-lg bg-white/80 px-3 py-1.5 text-gray-950 shadow-sm ring-1 ring-black/5 backdrop-blur-md transition-all hover:bg-white dark:bg-gray-900/50 dark:text-gray-200 dark:ring-white/10 dark:hover:bg-gray-800/80"
               >
                 ›
               </a>
             ) : (
-              <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-neutral-100/50 text-neutral-400 ring-1 ring-neutral-200/50 dark:bg-neutral-800/50 dark:text-neutral-600 dark:ring-neutral-700/50">
+              <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gray-100/50 text-gray-400 ring-1 ring-gray-200/50 dark:bg-gray-800/50 dark:text-gray-600 dark:ring-gray-700/50">
                 ›
               </span>
             )}
@@ -173,12 +173,12 @@ const items = computePages(page.currentPage, page.lastPage, win);
             {page.url.last ? (
               <a
                 href={page.url.last}
-                class="inline-flex items-center rounded-lg bg-white/80 px-3 py-1.5 text-neutral-950 shadow-sm ring-1 ring-black/5 backdrop-blur-md transition-all hover:bg-white dark:bg-neutral-900/50 dark:text-neutral-200 dark:ring-white/10 dark:hover:bg-neutral-800/80"
+                class="inline-flex items-center rounded-lg bg-white/80 px-3 py-1.5 text-gray-950 shadow-sm ring-1 ring-black/5 backdrop-blur-md transition-all hover:bg-white dark:bg-gray-900/50 dark:text-gray-200 dark:ring-white/10 dark:hover:bg-gray-800/80"
               >
                 »
               </a>
             ) : (
-              <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-neutral-100/50 text-neutral-400 ring-1 ring-neutral-200/50 dark:bg-neutral-800/50 dark:text-neutral-600 dark:ring-neutral-700/50">
+              <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gray-100/50 text-gray-400 ring-1 ring-gray-200/50 dark:bg-gray-800/50 dark:text-gray-600 dark:ring-gray-700/50">
                 »
               </span>
             )}

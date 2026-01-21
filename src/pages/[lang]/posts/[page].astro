@@ -47,7 +47,7 @@ const description = t(lang, 'common.pagination.totalPostsWithLang', {
 
 <LandingLayout lang={lang} title={title} description={description} canonical={Astro.url.href}>
   <div class="mt-2">
-    <div class="divide-y divide-neutral-200/60 dark:divide-neutral-800/60">
+    <div class="divide-y divide-gray-200/60 dark:divide-gray-800/60">
       {
         items.map((p) => (
           <PostCardText

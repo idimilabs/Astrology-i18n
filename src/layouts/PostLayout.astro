@@ -159,7 +159,7 @@ const headerProps = {
       <Prose>
         <slot />
         {(publishedTime || modifiedTime) && (
-          <p class="mt-6 text-xs text-neutral-500 dark:text-neutral-400">
+          <p class="mt-6 text-xs text-gray-500 dark:text-gray-400">
             {publishedTime && (
               <>
                 {t(resolvedLang, 'post.publishedAt')}: {fmt(publishedTime)}
@@ -178,7 +178,7 @@ const headerProps = {
             {author ? (
               <a
                 href={getRelativeLocaleUrl(resolvedLang, '/author/')}
-                class="flex items-center gap-3 text-xs text-neutral-600 no-underline transition-opacity hover:no-underline hover:opacity-70 focus:no-underline dark:text-neutral-300"
+                class="flex items-center gap-3 text-xs text-gray-600 no-underline transition-opacity hover:no-underline hover:opacity-70 focus:no-underline dark:text-gray-300"
               >
                 <Image
                   src={authorAvatar}
@@ -199,7 +199,7 @@ const headerProps = {
                     resolvedLang,
                     `/category/${encodeURIComponent(categoryKey ?? '')}`,
                   )}
-                  class="inline-flex items-center rounded-full bg-neutral-100 px-2.5 py-0.5 text-xs font-medium text-neutral-700 no-underline hover:bg-neutral-200 hover:no-underline focus:no-underline dark:bg-neutral-800 dark:text-neutral-300"
+                  class="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-700 no-underline hover:bg-gray-200 hover:no-underline focus:no-underline dark:bg-gray-800 dark:text-gray-300"
                   aria-label={`Category: ${categoryLabel}`}
                 >
                   {categoryLabel}

@@ -67,7 +67,7 @@ const years = [currentYear, currentYear - 1, currentYear - 2];
 >
   <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
     <section
-      class="rounded-3xl bg-white/80 p-8 shadow-lg shadow-black/5 backdrop-blur-xl transition-all duration-300 hover:shadow-xl hover:shadow-black/10 sm:p-12 lg:p-16 dark:bg-neutral-900/80 dark:shadow-white/5 dark:hover:shadow-white/10"
+      class="rounded-3xl bg-white/80 p-8 shadow-lg shadow-black/5 backdrop-blur-xl transition-all duration-300 hover:shadow-xl hover:shadow-black/10 sm:p-12 lg:p-16 dark:bg-gray-900/80 dark:shadow-white/5 dark:hover:shadow-white/10"
     >
       <div class="flex flex-col items-center gap-8 sm:flex-row sm:items-start sm:gap-12">
         <div class="shrink-0">
@@ -76,7 +76,7 @@ const years = [currentYear, currentYear - 1, currentYear - 2];
             alt={authorName}
             width={160}
             height={160}
-            class="h-32 w-32 rounded-full object-cover ring-2 ring-neutral-200 sm:h-40 sm:w-40 dark:ring-neutral-700"
+            class="h-32 w-32 rounded-full object-cover ring-2 ring-gray-200 sm:h-40 sm:w-40 dark:ring-gray-700"
             layout="fixed"
             fit="cover"
             rounded={false}
@@ -87,7 +87,7 @@ const years = [currentYear, currentYear - 1, currentYear - 2];
           <h1 class="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
             {authorName}
           </h1>
-          <p class="mt-6 text-lg leading-relaxed text-neutral-600 sm:text-xl dark:text-neutral-400">
+          <p class="mt-6 text-lg leading-relaxed text-gray-600 sm:text-xl dark:text-gray-400">
             {description}
           </p>
 
@@ -99,7 +99,7 @@ const years = [currentYear, currentYear - 1, currentYear - 2];
                     href={s.url}
                     target={s.url.startsWith('http') ? '_blank' : undefined}
                     rel={s.url.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    class="group inline-flex items-center justify-center rounded-full bg-neutral-100 p-3 text-neutral-700 transition-all duration-200 hover:scale-110 hover:bg-neutral-900 hover:text-white hover:shadow-lg dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-white dark:hover:text-neutral-950"
+                    class="group inline-flex items-center justify-center rounded-full bg-gray-100 p-3 text-gray-700 transition-all duration-200 hover:scale-110 hover:bg-gray-900 hover:text-white hover:shadow-lg dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-white dark:hover:text-gray-950"
                     aria-label={s.label}
                   >
                     <Icon
@@ -118,10 +118,10 @@ const years = [currentYear, currentYear - 1, currentYear - 2];
     {
       githubUsername && (
         <section class="mt-24">
-          <div class="relative overflow-hidden rounded-[2.5rem] bg-neutral-50 p-8 ring-1 ring-neutral-200/50 transition-all duration-500 hover:ring-neutral-300/50 sm:p-10 dark:bg-neutral-900/40 dark:ring-neutral-800 dark:hover:ring-neutral-700">
+          <div class="relative overflow-hidden rounded-[2.5rem] bg-gray-50 p-8 ring-1 ring-gray-200/50 transition-all duration-500 hover:ring-gray-300/50 sm:p-10 dark:bg-gray-900/40 dark:ring-gray-800 dark:hover:ring-gray-700">
             <div class="flex flex-col gap-6">
               <div class="flex flex-wrap items-center justify-between gap-3">
-                <h2 class="text-2xl font-semibold tracking-tight text-neutral-950 dark:text-white">
+                <h2 class="text-2xl font-semibold tracking-tight text-gray-950 dark:text-white">
                   {t(lang, 'pages.author.writingActivity')}
                 </h2>
               </div>
@@ -143,7 +143,7 @@ const years = [currentYear, currentYear - 1, currentYear - 2];
 
                 <div class="shrink-0">
                   <div
-                    class="flex flex-row flex-wrap items-center justify-start gap-2 text-neutral-700 lg:flex-col lg:items-end lg:gap-2.5 dark:text-neutral-200"
+                    class="flex flex-row flex-wrap items-center justify-start gap-2 text-gray-700 lg:flex-col lg:items-end lg:gap-2.5 dark:text-gray-200"
                     id="year-selector"
                   >
                     {years.map((year) => (
@@ -152,8 +152,8 @@ const years = [currentYear, currentYear - 1, currentYear - 2];
                         data-year={year}
                         class={`group inline-flex min-w-[70px] items-center justify-center rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200 ${
                           year === currentYear
-                            ? '-translate-y-px bg-neutral-900 text-white shadow-lg ring-1 shadow-neutral-900/10 ring-neutral-900/40 dark:bg-white dark:text-neutral-950 dark:shadow-white/10 dark:ring-white/30'
-                            : 'text-neutral-600 ring-1 ring-neutral-200 hover:-translate-y-px hover:bg-neutral-900/5 dark:text-neutral-400 dark:ring-neutral-800 dark:hover:bg-neutral-800 dark:hover:text-white'
+                            ? '-translate-y-px bg-gray-900 text-white shadow-lg ring-1 shadow-gray-900/10 ring-gray-900/40 dark:bg-white dark:text-gray-950 dark:shadow-white/10 dark:ring-white/30'
+                            : 'text-gray-600 ring-1 ring-gray-200 hover:-translate-y-px hover:bg-gray-900/5 dark:text-gray-400 dark:ring-gray-800 dark:hover:bg-gray-800 dark:hover:text-white'
                         }`}
                       >
                         {year}
@@ -205,27 +205,27 @@ const years = [currentYear, currentYear - 1, currentYear - 2];
     }
 
     const activeClasses = [
-      'bg-neutral-900',
+      'bg-gray-900',
       'text-white',
       'shadow-lg',
-      'shadow-neutral-900/10',
+      'shadow-gray-900/10',
       'ring-1',
-      'ring-neutral-900/40',
+      'ring-gray-900/40',
       '-translate-y-px',
       'dark:bg-white',
-      'dark:text-neutral-950',
+      'dark:text-gray-950',
       'dark:shadow-white/10',
       'dark:ring-white/30',
     ];
     const inactiveClasses = [
       'ring-1',
-      'ring-neutral-200',
-      'text-neutral-600',
+      'ring-gray-200',
+      'text-gray-600',
       'hover:-translate-y-px',
-      'hover:bg-neutral-900/5',
-      'dark:text-neutral-400',
-      'dark:ring-neutral-800',
-      'dark:hover:bg-neutral-800',
+      'hover:bg-gray-900/5',
+      'dark:text-gray-400',
+      'dark:ring-gray-800',
+      'dark:hover:bg-gray-800',
       'dark:hover:text-white',
     ];
 

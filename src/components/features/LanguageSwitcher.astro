@@ -30,7 +30,7 @@ const currentFlag = FLAG_MAP[resolvedLang] ?? '🌐';
 
 <details class={`relative ${className ?? ''}`.trim()} data-lang-root>
   <summary
-    class="cursor-pointer rounded-md p-2 text-neutral-700 select-none hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800"
+    class="cursor-pointer rounded-md p-2 text-gray-700 select-none hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
   >
     <span aria-hidden="true">{currentFlag}</span>
     <span class="sr-only">{t(resolvedLang, 'language.switch')}</span>
@@ -42,7 +42,7 @@ const currentFlag = FLAG_MAP[resolvedLang] ?? '🌐';
       SUPPORTED_LANGS.map((l) => (
         <a
           href={toAbsolute(l, Astro.url.pathname)}
-          class={`flex w-full items-center gap-2 rounded-sm px-2.5 py-1.5 text-sm transition-colors hover:bg-black/20 hover:text-neutral-950 dark:hover:bg-white/15 dark:hover:text-white ${l === resolvedLang ? 'font-medium text-neutral-950 dark:text-white' : 'text-neutral-700 dark:text-neutral-300'}`}
+          class={`flex w-full items-center gap-2 rounded-sm px-2.5 py-1.5 text-sm transition-colors hover:bg-black/20 hover:text-gray-950 dark:hover:bg-white/15 dark:hover:text-white ${l === resolvedLang ? 'font-medium text-gray-950 dark:text-white' : 'text-gray-700 dark:text-gray-300'}`}
         >
           <span aria-hidden="true">{FLAG_MAP[l] ?? '🌐'}</span>
           <span>{t(l, 'language.name')}</span>

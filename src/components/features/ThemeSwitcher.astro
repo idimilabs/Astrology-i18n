@@ -23,7 +23,7 @@ const THEME_OPTIONS = [
 
 <details class={`relative group ${className ?? ''}`.trim()} data-theme-root>
   <summary
-    class="cursor-pointer rounded-md p-2 text-neutral-700 select-none hover:bg-neutral-100 focus:outline-none dark:text-neutral-300 dark:hover:bg-neutral-800"
+    class="cursor-pointer rounded-md p-2 text-gray-700 select-none hover:bg-gray-100 focus:outline-none dark:text-gray-300 dark:hover:bg-gray-800"
     aria-label={t(resolvedLang, 'theme.toggle')}
   >
     <span data-theme-icon>
@@ -43,7 +43,7 @@ const THEME_OPTIONS = [
       THEME_OPTIONS.map((option) => (
         <button
           type="button"
-          class={`flex w-full items-center gap-2 rounded-sm px-2.5 py-1.5 ${alignmentClass} text-sm text-neutral-700 transition-colors hover:bg-black/20 hover:text-neutral-950 focus:bg-black/20 focus:outline-none dark:text-neutral-300 dark:hover:bg-white/15 dark:hover:text-white dark:focus:bg-white/15`}
+          class={`flex w-full items-center gap-2 rounded-sm px-2.5 py-1.5 ${alignmentClass} text-sm text-gray-700 transition-colors hover:bg-black/20 hover:text-gray-950 focus:bg-black/20 focus:outline-none dark:text-gray-300 dark:hover:bg-white/15 dark:hover:text-white dark:focus:bg-white/15`}
           role="menuitem"
           data-theme-option={option.value}
           aria-pressed={false}
