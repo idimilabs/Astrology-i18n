@@ -9,9 +9,7 @@
     {
       "matchPackagePatterns": ["*"],
       "groupName": "All Dependencies",
-      "automerge": true,
-      "automergeType": "branch",
-      "rebaseWhen": "behind-base-branch"
+      "automerge": true
     }
   ],
   "platformAutomerge": true,
