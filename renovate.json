@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended", ":automergeAll"],
+  "extends": ["config:recommended", ":automergeAll", ":disableDependencyDashboard"],
   "timezone": "Asia/Shanghai",
   "schedule": ["before 3:00am"]
 }
