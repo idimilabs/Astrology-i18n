@@ -29,7 +29,7 @@ const dateFormatter = new Intl.DateTimeFormat(lang, {
         .join(" / ")
 
       return (
-        <a class="archive-row heos-press group" href={postUrl(post)}>
+        <a class="archive-row press-feedback group" href={postUrl(post)}>
           <time
             class="archive-row__date"
             datetime={post.data.pubDate.toISOString()}

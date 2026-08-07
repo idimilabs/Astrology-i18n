@@ -120,3 +120,20 @@ test("incremental builds cover content-driven static paths only", async () => {
     assert.doesNotMatch(await readProjectFile(route), /cacheKey:/)
   }
 })
+
+test("publishing path keeps the lean image and interaction contracts", async () => {
+  const [imageComponent, layout, styles, design] = await Promise.all([
+    readProjectFile("src/components/features/OptimizedPicture.astro"),
+    readProjectFile("src/layouts/main.astro"),
+    readProjectFile("src/styles/global.css"),
+    readProjectFile("DESIGN.md"),
+  ])
+
+  assert.match(imageComponent, /widths=\{widths\}/)
+  assert.doesNotMatch(imageComponent, /\bPicture\b/)
+  assert.doesNotMatch(layout, /modelContext/)
+  assert.match(styles, /\.press-feedback/)
+  assert.doesNotMatch(styles, /\.heos-press/)
+  assert.match(design, /### Press feedback/)
+  assert.doesNotMatch(design, /\bHeOS\b/)
+})

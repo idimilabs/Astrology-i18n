@@ -137,7 +137,7 @@ Use pnpm for Node.js work. Do not add npm, yarn, or bun lockfiles.
   `heroImageHeight`.
 - Remote images are limited to the configured asset host and Unsplash hosts.
 - Remote `OptimizedPicture` usage in content must include explicit `width` and
-  `height` unless it intentionally uses Astro `inferSize`.
+  `height`.
 - Keep category and tag slugs canonical through `src/config/taxonomy.ts`.
 
 ## UI and Design Workflow

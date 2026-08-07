@@ -20,7 +20,7 @@ const { items, label, class: className = "" } = Astro.props
       aria-label={label}
     >
       {items.map((item) => (
-        <a class="taxonomy-pill heos-press" href={item.href}>
+        <a class="taxonomy-pill press-feedback" href={item.href}>
           {item.label}
         </a>
       ))}

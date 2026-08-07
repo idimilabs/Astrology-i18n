@@ -628,7 +628,7 @@ html:lang(ar) .article-prose :where(p, li) {
   @apply inline-flex items-center rounded-full bg-neutral-900 px-3 py-1 text-xs font-semibold tracking-wide text-white uppercase transition-opacity duration-150 hover:opacity-90 dark:bg-neutral-100 dark:text-neutral-950;
 }
 
-.heos-press {
+.press-feedback {
   transform-origin: center;
   transition-property:
     scale, opacity, color, background-color, border-color, transform, translate,
@@ -638,13 +638,13 @@ html:lang(ar) .article-prose :where(p, li) {
   transition-timing-function: ease-out;
 }
 
-.heos-press:active {
+.press-feedback:active {
   scale: 0.985;
   opacity: 0.88;
 }
 
-.heos-press:focus-visible,
-.heos-press:has(> a:focus-visible) {
+.press-feedback:focus-visible,
+.press-feedback:has(> a:focus-visible) {
   outline: 2px solid var(--foreground);
   outline-offset: 2px;
   box-shadow:
@@ -791,18 +791,18 @@ html:lang(ar) .article-prose :where(p, li) {
       .not-found-link,
       .not-found-search__button,
       .motion-lift,
-      .heos-press
+      .press-feedback
     ) {
     translate: none !important;
   }
 
-  .heos-press,
-  .heos-press:active,
+  .press-feedback,
+  .press-feedback:active,
   [data-activity-year] {
     scale: 1 !important;
   }
 
-  .heos-press:active {
+  .press-feedback:active {
     opacity: 0.78;
   }
 

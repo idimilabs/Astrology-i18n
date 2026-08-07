@@ -66,7 +66,7 @@ const localizedNotFoundJson = JSON.stringify(localizedNotFound).replaceAll(
         placeholder={searchPrompt}
       />
       <button
-        class="not-found-search__button heos-press"
+        class="not-found-search__button press-feedback"
         type="submit"
         data-not-found-search-button
       >
@@ -81,7 +81,7 @@ const localizedNotFoundJson = JSON.stringify(localizedNotFound).replaceAll(
     data-not-found-nav
   >
     <a
-      class="not-found-link heos-press"
+      class="not-found-link press-feedback"
       href={localePath(lang, "/")}
       data-not-found-home
     >
@@ -93,7 +93,7 @@ const localizedNotFoundJson = JSON.stringify(localizedNotFound).replaceAll(
       <span>{t(lang, "notFound.backToHome")}</span>
     </a>
     <a
-      class="not-found-link heos-press"
+      class="not-found-link press-feedback"
       href={localePath(lang, "/posts/")}
       data-not-found-posts
     >

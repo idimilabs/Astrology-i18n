@@ -279,7 +279,7 @@ dropdown items use 8px, regular cards use 10px to 14px, image cards use 24px to
 - **Icons:** use `src/components/ui/Icon.astro` and the Lucide allowlist in
   `astro.config.mjs`.
 
-### HeOS response states
+### Press feedback
 
 - **Rest:** preserve the entry's established color, opacity, position, and
   geometry.
@@ -295,7 +295,7 @@ dropdown items use 8px, regular cards use 10px to 14px, image cards use 24px to
 - Keep `:focus-visible` treatment clear during every state. Press feedback must
   not change box dimensions, spacing, or document flow.
 
-### HeOS RTL spatial mapping
+### RTL spatial mapping
 
 - Treat inline start and inline end as the source of truth for drawer origins,
   disclosure anchors, spacing, alignment, and directional navigation icons.
@@ -307,7 +307,7 @@ dropdown items use 8px, regular cards use 10px to 14px, image cards use 24px to
 - Current-location styling and category hierarchy retain the same semantics in
   both directions; directional icons mirror without changing their action.
 
-### HeOS adaptive materials
+### Adaptive materials
 
 - Ordinary preferences retain the image-led glass language, translucent
   surfaces, and backdrop blur described above.
@@ -323,7 +323,7 @@ dropdown items use 8px, regular cards use 10px to 14px, image cards use 24px to
   Pagefind search input and fallback, taxonomy entries, pagination, and other
   functional glass badges. Preserve light, dark, LTR, and RTL semantics.
 
-### HeOS reduced motion
+### Reduced motion
 
 - Ordinary preferences retain the existing restrained, interruptible motion and
   the LTR/RTL paths documented above.

@@ -81,8 +81,6 @@ const baseJsonLd = [
 const jsonLdItems = jsonLd
   ? baseJsonLd.concat(Array.isArray(jsonLd) ? jsonLd : [jsonLd])
   : baseJsonLd
-const modelContextSearchDescription = `Search ${SITE_CONFIG.name} public editorial content.`
-const modelContextSearchTitle = `${SITE_CONFIG.name} search`
 const languageAlternates = noindex
   ? undefined
   : Object.entries(alternates).map(([hrefLang, href]) => ({
@@ -164,52 +162,6 @@ const alternateOgLocales = LOCALES.filter((locale) => locale !== lang).map(
       type="application/ld+json"
       set:html={JSON.stringify(jsonLdItems)}
     />
-    <script
-      is:inline
-      define:vars={{ modelContextSearchDescription, modelContextSearchTitle }}
-    >
-      ;(() => {
-        const modelContext = navigator.modelContext
-        if (!modelContext || typeof modelContext.registerTool !== "function") return
-
-        const controller = new AbortController()
-        modelContext.registerTool(
-          {
-            name: "site_search",
-            description: modelContextSearchDescription,
-            inputSchema: {
-              type: "object",
-              properties: {
-                query: {
-                  type: "string",
-                  description: "Search query.",
-                },
-                locale: {
-                  type: "string",
-                  description: "Locale prefix.",
-                  enum: ["en", "zh", "fr", "es", "ru", "ja", "ko", "pt", "de", "id", "ar"],
-                  default: "en",
-                },
-              },
-              required: ["query"],
-              additionalProperties: false,
-            },
-            execute: async ({ query, locale = "en" }) => {
-              const path = `/${locale}/search/?q=${encodeURIComponent(query)}`
-              return {
-                url: new URL(path, location.origin).toString(),
-                title: modelContextSearchTitle,
-              }
-            },
-          },
-          { signal: controller.signal }
-        )
-
-        document.addEventListener("astro:before-swap", () => controller.abort(), {
-          once: true,
-        })
-      })()
-    </script>
     <GTMHead />
     <Adsense />
   </head>
