@@ -63,6 +63,11 @@ test("Astro 7 stable features are configured without removed flags", async () =>
     /collectionStorage/,
     "Astro 7.1 collection storage remains experimental"
   )
+  assert.match(
+    astroConfig,
+    /incrementalBuild:\s*true/,
+    "Astro 7.2 incremental builds must be explicitly enabled"
+  )
   assert.equal(
     contentConfig.match(/deferRender:\s*true/g)?.length,
     3,
@@ -79,4 +84,39 @@ test("Astro 7 background development workflow is exposed", async () => {
   assert.equal(packageJson.scripts["dev:logs"], "astro dev logs")
   assert.equal(packageJson.scripts["dev:stop"], "astro dev stop")
   assert.equal(packageJson.scripts["dev:json"], "astro dev --json")
+})
+
+test("incremental builds cover content-driven static paths only", async () => {
+  const cacheKeyRoutes = [
+    "src/pages/[lang]/index.astro",
+    "src/pages/[lang]/[page].astro",
+    "src/pages/[lang]/about.astro",
+    "src/pages/[lang]/author.astro",
+    "src/pages/[lang]/contact.astro",
+    "src/pages/[lang]/privacy-policy.astro",
+    "src/pages/[lang]/terms-of-service.astro",
+    "src/pages/[lang]/posts/index.astro",
+    "src/pages/[lang]/posts/[page].astro",
+    "src/pages/[lang]/posts/[...slug].astro",
+    "src/pages/[lang]/category/index.astro",
+    "src/pages/[lang]/category/page/[page].astro",
+    "src/pages/[lang]/category/[slug]/index.astro",
+    "src/pages/[lang]/category/[slug]/[page].astro",
+    "src/pages/[lang]/tags/index.astro",
+    "src/pages/[lang]/tags/page/[page].astro",
+    "src/pages/[lang]/tags/[slug]/index.astro",
+    "src/pages/[lang]/tags/[slug]/[page].astro",
+    "src/pages/[lang]/rss.xml.ts",
+  ]
+
+  for (const route of cacheKeyRoutes) {
+    assert.match(await readProjectFile(route), /cacheKey:/, `${route} needs a cache key`)
+  }
+
+  for (const route of [
+    "src/pages/[lang]/404.astro",
+    "src/pages/[lang]/search.astro",
+  ]) {
+    assert.doesNotMatch(await readProjectFile(route), /cacheKey:/)
+  }
 })

@@ -9,23 +9,30 @@ import { LOCALES, type Locale } from "@/config/locales"
 import { TAXONOMY_POSTS_PER_PAGE } from "@/config/pagination"
 import { TAXONOMY, getPrimaryCategories, getTag } from "@/config/taxonomy"
 import { getPaginationLinks } from "@/utils/pagination"
-import { getPostsByTag } from "@/utils/posts"
+import { contentCacheKey, getPostsByTag } from "@/utils/posts"
 import { taxonomyMetaDescription, taxonomyMetaTitle } from "@/utils/seo"
 import { t } from "@/utils/translations"
 
 export async function getStaticPaths({ paginate }: { paginate: any }) {
   const paths = []
   for (const lang of LOCALES) {
-    for (const tag of TAXONOMY.tags)
+    for (const tag of TAXONOMY.tags) {
+      const posts = await getPostsByTag(lang, tag.slug)
       paths.push(
-        ...paginate(await getPostsByTag(lang, tag.slug), {
+        ...paginate(posts, {
           params: { lang, slug: tag.slug },
           props: { lang, slug: tag.slug },
           pageSize: TAXONOMY_POSTS_PER_PAGE,
-        }).filter(({ props }: { props: { page: { currentPage: number } } }) =>
+        })
+          .map((path: any) => ({
+            ...path,
+            cacheKey: contentCacheKey(path.props.page.data),
+          }))
+          .filter(({ props }: { props: { page: { currentPage: number } } }) =>
           props.page.currentPage > 1
-        )
+          )
       )
+    }
   }
   return paths
 }

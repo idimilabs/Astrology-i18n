@@ -1,5 +1,5 @@
 ---
-import { getCollection, render } from "astro:content"
+import { render } from "astro:content"
 import Layout from "@/layouts/main.astro"
 import OptimizedPicture from "@/components/features/OptimizedPicture.astro"
 import ProseContent from "@/components/layout/ProseContent.astro"
@@ -7,6 +7,7 @@ import PostCardGrid from "@/components/lists/PostCardGrid.astro"
 import TableOfContents from "@/components/navigation/TableOfContents.astro"
 import { articleJsonLd } from "@/utils/structured-data"
 import {
+  contentCacheKey,
   getPublishedPosts,
   postCategorySlug,
   postPath,
@@ -24,11 +25,17 @@ import type { TocHeading } from "@/utils/headings"
 import authorImage from "@/assets/author.avif"
 
 export async function getStaticPaths() {
-  const posts = await getCollection("post", (entry) => !entry.data.draft)
-  return posts.map((post) => ({
-    params: { lang: post.data.locale, slug: postSlug(post) },
-    props: { post },
-  }))
+  const posts = await getPublishedPosts()
+  return posts.map((post) => {
+    const localePosts = posts.filter((entry) => entry.data.locale === post.data.locale)
+    const translations = posts.filter((entry) => postSlug(entry) === postSlug(post))
+
+    return {
+      params: { lang: post.data.locale, slug: postSlug(post) },
+      props: { post },
+      cacheKey: contentCacheKey([...localePosts, ...translations]),
+    }
+  })
 }
 
 const { post } = Astro.props

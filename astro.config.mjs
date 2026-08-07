@@ -74,6 +74,7 @@ export default defineConfig({
     },
   },
   experimental: {
+    incrementalBuild: true,
     svgOptimizer: svgoOptimizer({
       multipass: true,
       floatPrecision: 2,

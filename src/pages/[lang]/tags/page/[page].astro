@@ -13,7 +13,7 @@ import {
   getTotalPages,
   pageRange,
 } from "@/utils/pagination"
-import { getPostsForLocale, postTagSlugs } from "@/utils/posts"
+import { contentCacheKey, getPostsForLocale, postTagSlugs } from "@/utils/posts"
 import { localePath } from "@/utils/routes"
 import { t } from "@/utils/translations"
 
@@ -21,12 +21,14 @@ export async function getStaticPaths() {
   const paths = []
 
   for (const lang of LOCALES) {
+    const posts = await getPostsForLocale(lang)
     const totalPages = getTotalPages(TAXONOMY.tags.length, TAXONOMY_TERMS_PER_PAGE)
 
     for (const page of pageRange(totalPages).filter((item) => item > 1)) {
       paths.push({
         params: { lang, page: String(page) },
         props: { lang, currentPage: page, totalPages },
+        cacheKey: contentCacheKey(posts),
       })
     }
   }

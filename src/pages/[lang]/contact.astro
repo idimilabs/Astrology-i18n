@@ -8,9 +8,19 @@ import { SITE_CONFIG } from "@/config/site"
 import { render } from "astro:content"
 import { getPage } from "@/utils/content"
 import { t } from "@/utils/translations"
+import { contentCacheKey } from "@/utils/posts"
 
 export async function getStaticPaths() {
-  return LOCALES.map((lang) => ({ params: { lang }, props: { lang } }))
+  return Promise.all(
+    LOCALES.map(async (lang) => {
+      const page = await getPage(lang, "contact")
+      return {
+        params: { lang },
+        props: { lang },
+        cacheKey: contentCacheKey(page ? [page] : []),
+      }
+    })
+  )
 }
 
 const { lang } = Astro.props as { lang: Locale }

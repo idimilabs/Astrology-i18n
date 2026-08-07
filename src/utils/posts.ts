@@ -6,10 +6,16 @@ import { normalizeContentSlug } from "@/utils/content-slug"
 
 export type PostEntry = CollectionEntry<"post">
 
+type ContentDigestEntry = Pick<PostEntry, "id" | "digest">
+
 const publishedPostsPromise = getCollection("post", (entry) => !entry.data.draft)
 
 export function sortPostsByDate(posts: readonly PostEntry[]): PostEntry[] {
   return [...posts].sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+}
+
+export function contentCacheKey(entries: readonly ContentDigestEntry[]): string {
+  return entries.map((entry) => `${entry.id}:${entry.digest}`).join("|")
 }
 
 export function postSlug(entry: PostEntry): string {

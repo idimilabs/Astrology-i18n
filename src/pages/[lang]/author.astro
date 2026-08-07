@@ -7,12 +7,21 @@ import PageSection from "@/components/layout/PageSection.astro"
 import { LOCALES, type Locale } from "@/config/locales"
 import { SITE_CONFIG } from "@/config/site"
 import { getAuthor } from "@/utils/content"
-import { getPostsForLocale, postUrl } from "@/utils/posts"
+import { contentCacheKey, getPostsForLocale, postUrl } from "@/utils/posts"
 import { t } from "@/utils/translations"
 import authorImage from "@/assets/author.avif"
 
 export async function getStaticPaths() {
-  return LOCALES.map((lang) => ({ params: { lang }, props: { lang } }))
+  return Promise.all(
+    LOCALES.map(async (lang) => {
+      const [author, posts] = await Promise.all([getAuthor(lang), getPostsForLocale(lang)])
+      return {
+        params: { lang },
+        props: { lang },
+        cacheKey: contentCacheKey([...posts, ...(author ? [author] : [])]),
+      }
+    })
+  )
 }
 
 const { lang } = Astro.props as { lang: Locale }

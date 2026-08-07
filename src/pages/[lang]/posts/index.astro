@@ -7,11 +7,16 @@ import Pagination from "@/components/navigation/Pagination.astro"
 import { LOCALES, type Locale } from "@/config/locales"
 import { POSTS_PER_PAGE } from "@/config/pagination"
 import { getPaginationLinks, getTotalPages } from "@/utils/pagination"
-import { getPostsForLocale } from "@/utils/posts"
+import { contentCacheKey, getPostsForLocale } from "@/utils/posts"
 import { t } from "@/utils/translations"
 
 export async function getStaticPaths() {
-  return LOCALES.map((lang) => ({ params: { lang }, props: { lang } }))
+  return Promise.all(
+    LOCALES.map(async (lang) => {
+      const posts = await getPostsForLocale(lang)
+      return { params: { lang }, props: { lang }, cacheKey: contentCacheKey(posts) }
+    })
+  )
 }
 
 const { lang } = Astro.props as { lang: Locale }

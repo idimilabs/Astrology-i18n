@@ -13,12 +13,17 @@ import {
   getPaginationLinks,
   getTotalPages,
 } from "@/utils/pagination"
-import { getPostsForLocale, postTagSlugs } from "@/utils/posts"
+import { contentCacheKey, getPostsForLocale, postTagSlugs } from "@/utils/posts"
 import { localePath } from "@/utils/routes"
 import { t } from "@/utils/translations"
 
 export async function getStaticPaths() {
-  return LOCALES.map((lang) => ({ params: { lang }, props: { lang } }))
+  return Promise.all(
+    LOCALES.map(async (lang) => {
+      const posts = await getPostsForLocale(lang)
+      return { params: { lang }, props: { lang }, cacheKey: contentCacheKey(posts) }
+    })
+  )
 }
 
 const { lang } = Astro.props as { lang: Locale }
