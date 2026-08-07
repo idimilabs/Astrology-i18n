@@ -22,8 +22,8 @@ test("Astro 7 dependency contract is active", async () => {
   )
   assert.match(
     packageJson.dependencies.astro,
-    /7\.1\./,
-    "astro dependency must target Astro 7.1"
+    /7\.2\./,
+    "astro dependency must target Astro 7.2"
   )
   assert.equal(
     majorRange(packageJson.dependencies["@astrojs/mdx"]),
