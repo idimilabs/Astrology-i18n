@@ -53,14 +53,6 @@ export default defineConfig({
     responsiveStyles: true,
     layout: "constrained",
     remotePatterns: SITE_CONFIG.assets.remotePatterns,
-    service: {
-      config: {
-        jpeg: { mozjpeg: true },
-        webp: { effort: 6, alphaQuality: 80 },
-        avif: { effort: 4, chromaSubsampling: "4:2:0" },
-        png: { compressionLevel: 9 },
-      },
-    },
   },
   markdown: {
     processor: satteri(),
