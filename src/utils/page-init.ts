@@ -19,11 +19,7 @@ function runWhenReady(callback: PageInitCallback): void {
   queueMicrotask(() => runCallback(callback))
 }
 
-export function registerPageInit(
-  key: string,
-  callback: PageInitCallback
-): void {
-  void key
+export function registerPageInit(callback: PageInitCallback): void {
   runWhenReady(callback)
   document.addEventListener("astro:page-load", () => runCallback(callback))
 }

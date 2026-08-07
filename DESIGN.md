@@ -184,9 +184,6 @@ map to semantic CSS variables, then `:root` and `.dark` provide the live light
 and dark values.
 
 `DESIGN.md` stores sRGB approximations of the current OKLCH runtime tokens.
-`src/styles/design-theme.css` is a Tailwind-compatible token reference generated
-from this file. The generated file does not replace the runtime dark-mode
-variables by itself.
 
 ## Color System
 

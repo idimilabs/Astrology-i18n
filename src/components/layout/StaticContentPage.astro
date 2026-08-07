@@ -1,0 +1,34 @@
+---
+import { render } from "astro:content"
+
+import Layout from "@/layouts/main.astro"
+import PageHeader from "@/components/layout/PageHeader.astro"
+import PageSection from "@/components/layout/PageSection.astro"
+import ProseContent from "@/components/layout/ProseContent.astro"
+import { SITE_CONFIG } from "@/config/site"
+import type { Locale } from "@/config/locales"
+import { getPage } from "@/utils/content"
+
+interface Props {
+  lang: Locale
+  slug: string
+  fallbackTitle: string
+}
+
+const { lang, slug, fallbackTitle } = Astro.props
+const page = await getPage(lang, slug)
+const Content = page ? (await render(page)).Content : undefined
+const title = page?.data.title ?? fallbackTitle
+const description = page?.data.description ?? `${title} · ${SITE_CONFIG.name}`
+---
+
+<Layout lang={lang} path={`/${slug}/`} title={title} description={description}>
+  <PageSection class="py-8">
+    <PageHeader title={title} subtitle={description} class="search-header" />
+    <div class="mx-auto max-w-3xl text-center text-base leading-8 text-foreground/80">
+      <ProseContent class="max-w-none">
+        {Content ? <Content /> : <p>{SITE_CONFIG.description}</p>}
+      </ProseContent>
+    </div>
+  </PageSection>
+</Layout>

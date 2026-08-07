@@ -103,7 +103,6 @@ src/layouts/main.astro       # Shared shell, SEO, widgets, header, and footer
 src/components/              # Cards, layout, navigation, search, widgets, and icons
 src/integrations/pagefind.ts # Pagefind build and dev integration
 src/styles/global.css        # Runtime Tailwind v4 theme and component CSS
-src/styles/design-theme.css  # Token reference generated from DESIGN.md
 ```
 
 ## Routes and Locales
@@ -210,7 +209,6 @@ src/config/site.ts       # Site name, URL, description, repository, social links
 src/config/locales.ts    # Locale list, default locale, hreflang, direction
 src/config/taxonomy.ts   # Categories, tags, localized labels, slug helpers
 src/config/pagination.ts # Page sizes
-src/config/assets.ts     # Remote image host checks and URL helpers
 src/i18n/*.json          # Interface text
 ```
 

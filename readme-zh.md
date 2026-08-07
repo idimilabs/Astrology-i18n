@@ -89,7 +89,6 @@ src/layouts/main.astro       # 共享页面壳、SEO、组件、页头和页脚
 src/components/              # 卡片、布局、导航、搜索、组件和图标
 src/integrations/pagefind.ts # Pagefind 构建和开发集成
 src/styles/global.css        # 运行时 Tailwind v4 主题和组件 CSS
-src/styles/design-theme.css  # 从 DESIGN.md 生成的令牌参考
 ```
 
 ## 路由和语言
@@ -191,7 +190,6 @@ src/config/site.ts       # 站点名、域名、描述、仓库、社交链接�
 src/config/locales.ts    # 语言列表、默认语言、hreflang、文字方向
 src/config/taxonomy.ts   # 分类、标签、多语言名称、slug 工具
 src/config/pagination.ts # 分页数量
-src/config/assets.ts     # 远程图片域名检查和 URL 工具
 src/i18n/*.json          # 界面语言文案
 ```
 

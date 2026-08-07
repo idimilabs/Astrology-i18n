@@ -89,8 +89,6 @@ Use pnpm for Node.js work. Do not add npm, yarn, or bun lockfiles.
   serving for `/pagefind/`.
 - `src/styles/global.css`: live Tailwind v4 runtime theme, prose, cards,
   archive, taxonomy, search, and responsive UI CSS.
-- `src/styles/design-theme.css`: generated Tailwind v4 token reference from
-  `DESIGN.md`; do not edit by hand unless the token export workflow changes.
 - `DESIGN.md`: visual design source for tokens and UI appearance.
 
 ## Architecture Rules

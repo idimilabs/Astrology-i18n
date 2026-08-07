@@ -92,9 +92,6 @@ test("incremental builds cover content-driven static paths only", async () => {
     "src/pages/[lang]/[page].astro",
     "src/pages/[lang]/about.astro",
     "src/pages/[lang]/author.astro",
-    "src/pages/[lang]/contact.astro",
-    "src/pages/[lang]/privacy-policy.astro",
-    "src/pages/[lang]/terms-of-service.astro",
     "src/pages/[lang]/posts/index.astro",
     "src/pages/[lang]/posts/[page].astro",
     "src/pages/[lang]/posts/[...slug].astro",
@@ -112,6 +109,12 @@ test("incremental builds cover content-driven static paths only", async () => {
   for (const route of cacheKeyRoutes) {
     assert.match(await readProjectFile(route), /cacheKey:/, `${route} needs a cache key`)
   }
+
+  assert.match(
+    await readProjectFile("src/utils/content.ts"),
+    /getPageStaticPaths[\s\S]*cacheKey:/,
+    "localized static pages need a content cache key"
+  )
 
   for (const route of [
     "src/pages/[lang]/404.astro",
@@ -131,6 +134,7 @@ test("publishing path keeps the lean image and interaction contracts", async () 
 
   assert.match(imageComponent, /widths=\{widths\}/)
   assert.doesNotMatch(imageComponent, /\bPicture\b/)
+  assert.doesNotMatch(imageComponent, /homeLead|cardPortrait|cardWide|avatar/)
   assert.doesNotMatch(layout, /modelContext/)
   assert.match(styles, /\.press-feedback/)
   assert.doesNotMatch(styles, /\.heos-press/)

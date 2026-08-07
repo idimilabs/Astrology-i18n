@@ -2,66 +2,29 @@
 import { Image } from "astro:assets"
 import type { ImageMetadata } from "astro"
 
-type ImageLayout = "constrained" | "full-width" | "fixed" | "none"
-type ImageFit = "contain" | "cover" | "fill" | "none" | "scale-down"
 type ImageQuality = "low" | "mid" | "high" | "max" | number
-type ImageVariant =
-  | "homeLead"
-  | "articleHero"
-  | "cardPortrait"
-  | "cardWide"
-  | "avatar"
-  | "logo"
-  | "content"
+type ImageVariant = "articleHero" | "logo" | "content"
 
 interface ImagePreset {
-  layout: ImageLayout
-  fit: ImageFit
-  position: string
+  layout: "constrained" | "fixed"
+  fit: "contain" | "cover"
   quality: ImageQuality
 }
 
 const IMAGE_PRESETS = {
-  homeLead: {
-    layout: "constrained",
-    fit: "cover",
-    position: "center",
-    quality: "high",
-  },
   articleHero: {
     layout: "constrained",
     fit: "cover",
-    position: "center",
     quality: "mid",
-  },
-  cardPortrait: {
-    layout: "constrained",
-    fit: "cover",
-    position: "center",
-    quality: "mid",
-  },
-  cardWide: {
-    layout: "constrained",
-    fit: "cover",
-    position: "center",
-    quality: "mid",
-  },
-  avatar: {
-    layout: "fixed",
-    fit: "cover",
-    position: "center",
-    quality: "high",
   },
   logo: {
     layout: "fixed",
     fit: "contain",
-    position: "center",
     quality: "max",
   },
   content: {
     layout: "constrained",
     fit: "cover",
-    position: "center",
     quality: "mid",
   },
 } as const satisfies Record<ImageVariant, ImagePreset>
@@ -95,10 +58,6 @@ interface Props {
   height?: number
   widths?: number[]
   sizes?: string
-  layout?: ImageLayout
-  fit?: ImageFit
-  position?: string
-  quality?: ImageQuality
   class?: string
   priority?: boolean
   loading?: "eager" | "lazy"
@@ -115,10 +74,6 @@ const {
   height,
   widths,
   sizes,
-  layout,
-  fit,
-  position,
-  quality,
   class: className,
   priority = false,
   loading,
@@ -135,10 +90,6 @@ const isSvgImage = isStringSource
   ? stringSrc?.toLowerCase().split("?")[0]?.endsWith(".svg")
   : assetFormat === "svg"
 const dimensions = isSvgImage ? undefined : resolveImageDimensions(src, width, height)
-const imageLayout = layout ?? preset.layout
-const imageFit = fit ?? preset.fit
-const imagePosition = position ?? preset.position
-const imageQuality = quality ?? preset.quality
 const loadingAttrs = {
   priority: priority ? true : undefined,
   loading: loading ?? (priority ? "eager" : "lazy"),
@@ -176,10 +127,9 @@ const svgSrc = isStringSource ? (src as string) : (src as ImageMetadata).src
       crossorigin={crossOrigin}
       class={className}
       sizes={sizes}
-      layout={imageLayout}
-      fit={imageFit}
-      position={imagePosition}
-      quality={imageQuality}
+      layout={preset.layout}
+      fit={preset.fit}
+      quality={preset.quality}
       format="avif"
     />
   ) : (
@@ -196,10 +146,9 @@ const svgSrc = isStringSource ? (src as string) : (src as ImageMetadata).src
       crossorigin={crossOrigin}
       class={className}
       sizes={sizes}
-      layout={imageLayout}
-      fit={imageFit}
-      position={imagePosition}
-      quality={imageQuality}
+      layout={preset.layout}
+      fit={preset.fit}
+      quality={preset.quality}
       format="avif"
     />
   )
