@@ -100,6 +100,7 @@
   },
   "navigation": {
     "primary": "Navigasi utama",
+    "skipToContent": "Lewati ke konten utama",
     "build": "Startup",
     "invest": "Investasi",
     "life": "Kehidupan",

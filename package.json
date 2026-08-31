@@ -27,6 +27,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "test:design": "node --test scripts/verify-preserve-redesign.test.mjs",
     "test:upgrade": "node --test scripts/verify-astro-7-upgrade.test.mjs",
     "deploy": "pnpm build && wrangler deploy"
   },

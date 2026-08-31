@@ -24,9 +24,13 @@ const bundlePath = `/pagefind/${lang}/`
   role="search"
   aria-label={label}
 >
+  <label id={`${id}-label`} class="sr-only" for={`${id}-input`}>
+    {label}
+  </label>
+  <p id={`${id}-status`} class="sr-only" role="status"></p>
   <div id={id} class="pagefind-ui pagefind-init w-full" data-locale={lang}>
     <p
-      class="adaptive-glass-surface rounded-lg bg-background/70 p-6 text-sm text-muted-foreground shadow-sm backdrop-blur-md"
+      class="adaptive-glass-surface rounded-lg bg-card/90 p-6 text-sm text-muted-foreground shadow-sm backdrop-blur-md"
     >
       {hint}
     </p>
@@ -76,6 +80,25 @@ const bundlePath = `/pagefind/${lang}/`
         })
         window.__pagefindSearch = { id, instance, locale: lang }
 
+        const status = document.querySelector(`#${id}-status`)
+        let lastMessage = ""
+        const syncAccessibility = () => {
+          const input = target.querySelector(".pagefind-ui__search-input")
+          input?.setAttribute("id", `${id}-input`)
+          input?.setAttribute("aria-labelledby", `${id}-label`)
+
+          const message = target
+            .querySelector(".pagefind-ui__message")
+            ?.textContent?.trim()
+          if (!status || !message || message === lastMessage) return
+          lastMessage = message
+          status.textContent = message
+        }
+        const observer = new MutationObserver(syncAccessibility)
+        observer.observe(target, { childList: true, subtree: true })
+        window.__pagefindSearchObserver = observer
+        syncAccessibility()
+
         window.requestAnimationFrame(() => {
           if (target.querySelector(".pagefind-ui__search-input")) {
             target.dataset.pagefindStatus = "ready"
@@ -94,6 +117,8 @@ const bundlePath = `/pagefind/${lang}/`
     }
 
     const cleanup = () => {
+      window.__pagefindSearchObserver?.disconnect()
+      window.__pagefindSearchObserver = undefined
       window.__pagefindSearch?.instance?.destroy?.()
       window.__pagefindSearch = undefined
     }

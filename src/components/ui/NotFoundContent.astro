@@ -48,7 +48,11 @@ const localizedNotFoundJson = JSON.stringify(localizedNotFound).replaceAll(
 <PageSection class="py-8 text-center" data-not-found-page>
   <PageHeader title={title} subtitle={message} class="search-header" />
   <div class="mx-auto w-full max-w-2xl text-start">
-    <p class="mb-5 text-sm text-muted-foreground">
+    <p
+      id="not-found-search-prompt"
+      class="mb-5 text-sm text-muted-foreground"
+      data-not-found-search-prompt
+    >
       {searchPrompt}
     </p>
     <form
@@ -62,7 +66,7 @@ const localizedNotFoundJson = JSON.stringify(localizedNotFound).replaceAll(
         class="not-found-search__input"
         type="search"
         name="q"
-        aria-label={searchPrompt}
+        aria-labelledby="not-found-search-prompt"
         placeholder={searchPrompt}
       />
       <button
@@ -122,14 +126,13 @@ const localizedNotFoundJson = JSON.stringify(localizedNotFound).replaceAll(
   if (!root) return
 
   root.querySelector("[data-page-header] h1").textContent = labels.title
-  root.querySelector("[data-page-header] h2").textContent = labels.message
+  root.querySelector("[data-page-subtitle]").textContent = labels.message
 
   const prompt = root.querySelector(".not-found-search__input")
-  prompt?.setAttribute("aria-label", labels.searchPrompt)
   prompt?.setAttribute("placeholder", labels.searchPrompt)
   root.querySelector(".not-found-search")?.setAttribute("aria-label", labels.title)
   root.querySelector(".not-found-search")?.setAttribute("action", labels.searchHref)
-  root.querySelector(".not-found-search__input")?.closest("div")?.querySelector("p")?.replaceChildren(labels.searchPrompt)
+  root.querySelector("[data-not-found-search-prompt]")?.replaceChildren(labels.searchPrompt)
   root.querySelector("[data-not-found-search-label]").textContent = labels.searchTitle
 
   const homeLink = root.querySelector("[data-not-found-home]")

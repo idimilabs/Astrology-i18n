@@ -100,6 +100,7 @@
   },
   "navigation": {
     "primary": "主导航",
+    "skipToContent": "跳至主要内容",
     "build": "创业",
     "invest": "投资",
     "life": "生活",

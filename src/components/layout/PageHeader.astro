@@ -35,9 +35,12 @@ const alignment = align === "center" ? "mx-auto text-center" : ""
   <h1 class="page-title">{title}</h1>
   {
     subtitle && (
-      <h2 class="mx-auto mt-3 max-w-3xl text-lg leading-7 font-medium text-foreground/75 sm:text-xl">
+      <p
+        class="mx-auto mt-3 max-w-3xl text-lg leading-7 font-medium text-foreground/75 sm:text-xl"
+        data-page-subtitle
+      >
         {subtitle}
-      </h2>
+      </p>
     )
   }
   {
@@ -50,7 +53,7 @@ const alignment = align === "center" ? "mx-auto text-center" : ""
   {
     stat && (
       <p
-        class="adaptive-glass-surface mt-5 inline-flex min-h-8 items-center rounded-full bg-background/70 px-4 text-xs font-medium text-foreground shadow-sm backdrop-blur-md dark:bg-white/5"
+        class="adaptive-glass-surface mt-5 inline-flex min-h-8 items-center rounded-full bg-card/90 px-4 text-xs font-medium text-foreground shadow-sm backdrop-blur-md dark:bg-white/5"
         data-page-stat
       >
         {stat}

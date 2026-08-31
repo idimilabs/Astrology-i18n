@@ -1,6 +1,7 @@
 import { getLocaleMeta, type Locale } from "@/config/locales"
 import { SITE_CONFIG } from "@/config/site"
 import { canonicalUrl } from "@/utils/routes"
+import { t } from "@/utils/translations"
 
 export type SeoAuthor = {
   name: string
@@ -22,7 +23,7 @@ export function webSiteJsonLd(lang: Locale) {
     "@id": `${url}#website`,
     name: SITE_CONFIG.name,
     url,
-    description: SITE_CONFIG.description,
+    description: t(lang, "site.description"),
     inLanguage: language,
     potentialAction: {
       "@type": "SearchAction",
@@ -101,7 +102,7 @@ export function articleJsonLd(input: {
       url: SITE_CONFIG.url,
       logo: {
         "@type": "ImageObject",
-        url: absoluteUrl(SITE_CONFIG.defaultOgImage),
+        url: absoluteUrl(SITE_CONFIG.logo),
       },
     },
     author: input.authors.map((author) => ({

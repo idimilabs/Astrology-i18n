@@ -6,15 +6,35 @@ import { postCategorySlug, postUrl } from "@/utils/posts"
 
 interface Props {
   posts: PostEntry[]
+  priorityFirst?: boolean
+  headingLevel?: 2 | 3
+  compact?: boolean
+  class?: string
+  [key: string]: unknown
 }
 
-const { posts } = Astro.props
+const {
+  posts,
+  priorityFirst = false,
+  headingLevel = 2,
+  compact = false,
+  class: className = "",
+  ...attrs
+} = Astro.props
 const cards = posts.slice(0, 3)
+const TitleTag = headingLevel === 3 ? "h3" : "h2"
 ---
 
 {
   cards.length > 0 && (
-    <div class="grid grid-cols-12 gap-4 sm:gap-5 lg:h-[36rem] lg:grid-cols-[minmax(0,2.05fr)_minmax(20rem,0.95fr)] lg:grid-rows-2 lg:gap-8">
+    <div
+      class:list={[
+        "grid grid-cols-12 gap-4 sm:gap-5 lg:grid-cols-[minmax(0,2.05fr)_minmax(20rem,0.95fr)] lg:grid-rows-2 lg:gap-8",
+        compact ? "lg:h-[30rem]" : "lg:h-[36rem]",
+        className,
+      ]}
+      {...attrs}
+    >
       {cards.map((post, index) => {
         const categorySlug = postCategorySlug(post)
         const category = getCategory(categorySlug)
@@ -26,15 +46,18 @@ const cards = posts.slice(0, 3)
           year: "numeric",
         }).format(post.data.pubDate)
         const isLead = index === 0
-        const TitleTag = isLead ? "h2" : "h3"
+        const isPriority = priorityFirst && isLead
 
         return (
           <article
             class:list={[
-              "post-card press-feedback group relative col-span-12 aspect-[3/4] w-full min-w-0 max-w-full overflow-hidden rounded-3xl bg-muted text-white sm:min-h-[24rem]",
+              "post-card press-feedback group relative col-span-12 w-full min-w-0 max-w-full overflow-hidden rounded-3xl bg-muted text-white",
+              compact
+                ? "aspect-[16/11] min-h-[19rem] sm:min-h-[22rem]"
+                : "aspect-[3/4] sm:min-h-[24rem]",
               isLead
                 ? "sm:aspect-[16/9] sm:min-h-[27rem] lg:col-span-1 lg:row-span-2 lg:aspect-auto lg:min-h-0 lg:rounded-[1.75rem]"
-                : "sm:col-span-6 lg:col-span-1 lg:aspect-auto lg:min-h-0 lg:rounded-[1.75rem]",
+                : "sm:col-span-6 sm:aspect-[3/4] lg:col-span-1 lg:aspect-auto lg:min-h-0 lg:rounded-[1.75rem]",
             ]}
             data-glass-card
           >
@@ -54,9 +77,7 @@ const cards = posts.slice(0, 3)
                   ? "(max-width: 639px) calc(100vw - 2rem), (max-width: 1023px) calc(100vw - 3rem), min(64vw, 960px)"
                   : "(max-width: 639px) calc(100vw - 2rem), (max-width: 1023px) 50vw, min(32vw, 448px)"
               }
-              priority
-              loading="eager"
-              fetchpriority="high"
+              priority={isPriority}
               class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 ease-out"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/5" />
@@ -69,9 +90,7 @@ const cards = posts.slice(0, 3)
               ]}
               data-glass-target
             >
-              <div
-                class="mb-3 flex w-full items-center justify-center gap-3 text-xs text-white/75"
-              >
+              <div class="mb-3 flex w-full items-center justify-center gap-3 text-xs text-white/75">
                 <span class="card-meta-pill" data-category={categorySlug}>
                   {categoryLabel}
                 </span>

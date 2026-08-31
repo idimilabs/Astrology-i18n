@@ -100,6 +100,7 @@
   },
   "navigation": {
     "primary": "기본 탐색",
+    "skipToContent": "본문으로 건너뛰기",
     "build": "스타트업",
     "invest": "투자",
     "life": "인생",

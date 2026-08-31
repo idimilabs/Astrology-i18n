@@ -45,29 +45,29 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --background: oklch(0.9743 0.0068 247.89);
+  --foreground: oklch(0.2492 0.0327 256.31);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  --card-foreground: oklch(0.2492 0.0327 256.31);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.2492 0.0327 256.31);
+  --primary: oklch(0.5505 0.1868 255.82);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.9514 0.0138 247.97);
+  --secondary-foreground: oklch(0.2492 0.0327 256.31);
+  --muted: oklch(0.9514 0.0138 247.97);
+  --muted-foreground: oklch(0.4956 0.0376 249.98);
+  --accent: oklch(0.9334 0.0259 248.11);
+  --accent-foreground: oklch(0.426 0.1224 252.96);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: transparent;
-  --input: transparent;
-  --ring: oklch(0.708 0 0);
+  --border: oklch(0.9134 0.0209 248.06);
+  --input: oklch(0.9134 0.0209 248.06);
+  --ring: oklch(0.5505 0.1868 255.82);
   --radius: 0.625rem;
   --glass-border: transparent;
   --glass-border-light: transparent;
-  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  --glass-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.15);
+  --glass-shadow: 0 8px 32px rgba(23, 34, 49, 0.1);
+  --glass-shadow-hover: 0 12px 40px rgba(23, 34, 49, 0.15);
   --glass-content-bg: rgba(0, 0, 0, 0.4);
   --glass-content-bg-hover: rgba(0, 0, 0, 0.5);
   --post-card-content-bg: rgba(0, 0, 0, 0.26);
@@ -81,8 +81,8 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
+  --primary: oklch(0.7225 0.1482 252.28);
+  --primary-foreground: oklch(0.145 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
@@ -90,9 +90,9 @@
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: transparent;
-  --input: transparent;
-  --ring: oklch(0.556 0 0);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.7225 0.1482 252.28);
   --glass-border: transparent;
   --glass-border-light: transparent;
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -119,6 +119,11 @@
 
   body {
     @apply flex min-h-dvh flex-col bg-background text-foreground;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--primary) 28%, transparent);
+    color: var(--foreground);
   }
 
   button:not(:disabled),
@@ -181,16 +186,12 @@
 }
 
 .header-glass {
-  background: var(--background);
-  border-color: transparent;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
 }
 
 .site-logo {
-  transition: filter 150ms ease;
-}
-
-.dark .site-logo {
-  filter: invert(1) brightness(1.08);
+  transition: opacity 150ms ease;
 }
 
 .nav-dropdown,
@@ -233,11 +234,11 @@ html[dir="rtl"] [data-mobile-nav-panel][data-mobile-nav-state="closed"] {
 }
 
 .nav-link[aria-current="page"] {
-  @apply font-semibold text-foreground;
+  @apply font-semibold text-primary;
 }
 
 .nav-link[aria-current="page"]::after {
-  @apply w-full;
+  @apply w-full bg-primary;
 }
 
 .post-card picture,
@@ -382,7 +383,7 @@ html:lang(ar) .article-prose :where(p, li) {
 
 .article-prose
   > :where(:not(picture):not(img):not(video):not(iframe):not(figure)) {
-  @apply mx-auto max-w-3xl;
+  @apply mx-auto max-w-2xl;
 }
 
 .article-prose :where(picture, img, video, iframe, figure) {
@@ -430,7 +431,7 @@ html:lang(ar) .article-prose :where(p, li) {
 }
 
 .content-prose :where(a) {
-  @apply font-medium text-foreground underline decoration-muted-foreground underline-offset-4 transition-colors hover:decoration-foreground active:text-foreground/70 focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+  @apply font-medium text-primary underline decoration-primary/45 underline-offset-4 transition-colors hover:decoration-primary active:text-primary/70 focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
 }
 
 .content-prose :where(:not(pre) > code) {
@@ -476,7 +477,7 @@ html:lang(ar) .article-prose :where(p, li) {
 }
 
 .archive-row {
-  @apply grid w-full grid-cols-1 gap-1 rounded-md px-3 py-3 text-sm transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-neutral-50 sm:grid-cols-[9rem_minmax(0,1fr)] sm:items-center sm:gap-x-5 sm:px-5 md:grid-cols-[7rem_minmax(0,1fr)_minmax(8rem,13rem)_5rem] md:gap-x-4 lg:grid-cols-[9rem_minmax(0,1fr)_minmax(9rem,15rem)_9rem] lg:gap-x-5 lg:px-6 dark:hover:bg-neutral-900/40;
+  @apply grid w-full grid-cols-1 gap-1 rounded-md px-3 py-3 text-sm transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-card sm:grid-cols-[9rem_minmax(0,1fr)] sm:items-center sm:gap-x-5 sm:px-5 md:grid-cols-[7rem_minmax(0,1fr)_minmax(8rem,13rem)_5rem] md:gap-x-4 lg:grid-cols-[9rem_minmax(0,1fr)_minmax(9rem,15rem)_9rem] lg:gap-x-5 lg:px-6 dark:hover:bg-neutral-900/40;
 }
 
 .archive-row__date {
@@ -497,7 +498,7 @@ html:lang(ar) .article-prose :where(p, li) {
 }
 
 .taxonomy-card {
-  @apply block rounded-lg bg-background/70 p-5 backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent/60 dark:bg-white/5;
+  @apply block rounded-lg bg-card p-5 backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent/60 dark:bg-white/5;
 }
 
 .taxonomy-link-grid {
@@ -505,7 +506,7 @@ html:lang(ar) .article-prose :where(p, li) {
 }
 
 .taxonomy-link {
-  @apply flex min-h-24 items-start justify-between gap-4 rounded-lg bg-background/70 p-4 text-sm text-foreground transition hover:-translate-y-0.5 hover:bg-accent/70 dark:bg-white/[0.03];
+  @apply flex min-h-24 items-start justify-between gap-4 rounded-lg bg-card p-4 text-sm text-foreground transition hover:-translate-y-0.5 hover:bg-accent/70 dark:bg-white/[0.03];
 }
 
 .taxonomy-link__body {
@@ -525,13 +526,13 @@ html:lang(ar) .article-prose :where(p, li) {
 }
 
 .taxonomy-pill {
-  @apply inline-flex min-h-9 items-center rounded-full bg-background/70 px-4 py-1.5 text-sm font-medium text-foreground transition hover:-translate-y-0.5 hover:bg-accent dark:bg-white/5;
+  @apply inline-flex min-h-9 items-center rounded-full bg-card px-4 py-1.5 text-sm font-medium text-foreground transition hover:-translate-y-0.5 hover:bg-accent dark:bg-white/5;
 }
 
 .pagefind-ui {
-  --pagefind-ui-primary: var(--foreground);
+  --pagefind-ui-primary: var(--primary);
   --pagefind-ui-text: var(--foreground);
-  --pagefind-ui-background: var(--background);
+  --pagefind-ui-background: var(--card);
   --pagefind-ui-border: var(--border);
   --pagefind-ui-tag: var(--muted);
   --pagefind-ui-border-radius: 0.75rem;
@@ -565,7 +566,7 @@ html:lang(ar) .article-prose :where(p, li) {
     color-mix(in oklab, var(--muted-foreground) 38%, transparent) !important;
   background: color-mix(
     in oklab,
-    var(--background) 92%,
+    var(--card) 94%,
     transparent
   ) !important;
   box-shadow:
@@ -581,7 +582,7 @@ html:lang(ar) .article-prose :where(p, li) {
 .pagefind-ui__search-input:focus {
   border-color: color-mix(
     in oklab,
-    var(--foreground) 56%,
+    var(--primary) 72%,
     transparent
   ) !important;
   outline: 2px solid color-mix(in oklab, var(--ring) 70%, transparent) !important;
@@ -598,7 +599,7 @@ html:lang(ar) .article-prose :where(p, li) {
 }
 
 .pagefind-ui__result-link {
-  color: var(--foreground) !important;
+  color: var(--primary) !important;
   text-decoration-thickness: 1px !important;
   text-underline-offset: 0.18em !important;
 }
@@ -609,7 +610,7 @@ html:lang(ar) .article-prose :where(p, li) {
 }
 
 .not-found-link {
-  @apply inline-flex min-h-9 items-center gap-2 rounded-lg bg-background px-3.5 text-sm font-medium text-foreground transition hover:-translate-y-0.5 hover:bg-accent/70 dark:bg-white/[0.03];
+  @apply inline-flex min-h-11 items-center gap-2 rounded-lg bg-card px-3.5 text-sm font-medium text-foreground transition hover:-translate-y-0.5 hover:bg-accent/70 dark:bg-white/[0.03];
 }
 
 .not-found-search {
@@ -617,11 +618,11 @@ html:lang(ar) .article-prose :where(p, li) {
 }
 
 .not-found-search__input {
-  @apply min-h-12 min-w-0 flex-1 rounded-xl bg-background px-4 text-base text-foreground shadow-sm transition outline-none focus:ring-2 focus:ring-ring/30;
+  @apply min-h-12 min-w-0 flex-1 rounded-xl border border-input bg-card px-4 text-base text-foreground shadow-sm transition outline-none focus:ring-2 focus:ring-ring/30;
 }
 
 .not-found-search__button {
-  @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-foreground px-5 text-sm font-semibold text-background transition hover:-translate-y-0.5 hover:opacity-90;
+  @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-primary px-5 text-sm font-semibold text-primary-foreground transition hover:-translate-y-0.5 hover:opacity-90;
 }
 
 .category-tag {
@@ -645,11 +646,31 @@ html:lang(ar) .article-prose :where(p, li) {
 
 .press-feedback:focus-visible,
 .press-feedback:has(> a:focus-visible) {
-  outline: 2px solid var(--foreground);
+  outline: 2px solid var(--ring);
   outline-offset: 2px;
   box-shadow:
     0 0 0 4px var(--background),
-    0 0 0 6px var(--foreground);
+    0 0 0 6px var(--ring);
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  inset-block-start: 0.75rem;
+  inset-inline-start: 0.75rem;
+  translate: 0 calc(-100% - 1rem);
+  @apply rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground shadow-lg;
+}
+
+.skip-link:focus-visible {
+  translate: 0;
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.site-main:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: -2px;
 }
 
 @media (prefers-reduced-transparency: reduce) {
@@ -688,7 +709,7 @@ html:lang(ar) .article-prose :where(p, li) {
   }
 
   .pagefind-ui__search-input {
-    background: var(--background) !important;
+    background: var(--card) !important;
   }
 
   .mobile-nav-overlay {
@@ -728,7 +749,7 @@ html:lang(ar) .article-prose :where(p, li) {
   }
 
   .pagefind-ui__search-input {
-    background: var(--background) !important;
+    background: var(--card) !important;
     border: 2px solid var(--foreground) !important;
     box-shadow: none !important;
     backdrop-filter: none !important;

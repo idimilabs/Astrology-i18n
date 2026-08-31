@@ -3,7 +3,7 @@ import { render } from "astro:content"
 import Layout from "@/layouts/main.astro"
 import OptimizedPicture from "@/components/features/OptimizedPicture.astro"
 import ProseContent from "@/components/layout/ProseContent.astro"
-import PostCardGrid from "@/components/lists/PostCardGrid.astro"
+import PostFeatureGrid from "@/components/lists/PostFeatureGrid.astro"
 import TableOfContents from "@/components/navigation/TableOfContents.astro"
 import { articleJsonLd } from "@/utils/structured-data"
 import {
@@ -261,11 +261,10 @@ const jsonLd = articleJsonLd({
             <h2 id="related-posts" class="sr-only">
               {t(post.data.locale, "post.relatedPosts")}
             </h2>
-            <PostCardGrid
+            <PostFeatureGrid
               posts={relatedPosts}
-              columns="tablet-three"
               headingLevel={3}
-              class="post-card-grid"
+              compact
             />
           </section>
         )

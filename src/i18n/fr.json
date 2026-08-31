@@ -100,6 +100,7 @@
   },
   "navigation": {
     "primary": "Navigation principale",
+    "skipToContent": "Aller au contenu principal",
     "build": "Startup",
     "invest": "Investir",
     "life": "Vie",

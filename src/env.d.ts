@@ -17,6 +17,7 @@ interface Window {
     locale: string
   }
   __pagefindSearchCleanup?: () => void
+  __pagefindSearchObserver?: MutationObserver
   __dynamicGlassCleanup?: () => void
   __authorActivityCleanup?: () => void
 }

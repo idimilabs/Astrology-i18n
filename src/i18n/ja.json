@@ -100,6 +100,7 @@
   },
   "navigation": {
     "primary": "メインナビゲーション",
+    "skipToContent": "メインコンテンツへ移動",
     "build": "スタートアップ",
     "invest": "投資",
     "life": "人生",

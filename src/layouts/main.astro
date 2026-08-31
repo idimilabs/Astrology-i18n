@@ -166,12 +166,26 @@ const alternateOgLocales = LOCALES.filter((locale) => locale !== lang).map(
     <Adsense />
   </head>
   <body>
+    <a class="skip-link" href="#main">{t(lang, "navigation.skipToContent")}</a>
     <GTMBody />
     <Header lang={lang} path={path} />
-    <main class="flex-1">
+    <main id="main" class="site-main flex-1" tabindex="-1">
       <slot />
     </main>
     <Footer lang={lang} />
     {dynamicGlass && <DynamicGlass />}
+    <script>
+      let routeChangePending = false
+
+      document.addEventListener("astro:before-swap", () => {
+        routeChangePending = true
+      })
+
+      document.addEventListener("astro:page-load", () => {
+        if (!routeChangePending) return
+        document.querySelector<HTMLElement>("#main")?.focus({ preventScroll: true })
+        routeChangePending = false
+      })
+    </script>
   </body>
 </html>

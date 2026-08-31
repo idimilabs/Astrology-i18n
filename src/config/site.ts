@@ -101,6 +101,7 @@ export const SITE_CONFIG = {
     x: socialXUrl,
     xHandle: socialXHandle,
   },
+  logo: "/favicon.svg",
   defaultOgImage: "/open-graph.webp",
   assets: {
     publicBaseUrl: publicAssetBaseUrl,

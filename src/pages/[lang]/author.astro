@@ -176,7 +176,7 @@ const activityDataJson = JSON.stringify(activityByYear).replace(/</g, "\\u003c")
   <PageSection class="py-8" pagefindIgnore={false}>
     <PageHeader title={title} subtitle={author?.data.bio} />
     <article
-      class="author-card mx-auto mt-16 grid max-w-5xl gap-8 rounded-[2rem] bg-background/90 p-8 sm:p-12 md:grid-cols-[11rem_minmax(0,1fr)] md:items-center lg:p-16 dark:bg-white/[0.03]"
+      class="author-card mx-auto mt-16 grid max-w-5xl gap-8 rounded-[2rem] bg-card p-8 sm:p-12 md:grid-cols-[11rem_minmax(0,1fr)] md:items-center lg:p-16 dark:bg-white/[0.03]"
       data-author-card
     >
       <OptimizedPicture
@@ -250,7 +250,7 @@ const activityDataJson = JSON.stringify(activityByYear).replace(/</g, "\\u003c")
           >
             <button
               type="button"
-              class="hidden size-10 items-center justify-center rounded-lg bg-background text-muted-foreground transition hover:bg-accent hover:text-foreground disabled:pointer-events-none disabled:opacity-35 dark:bg-white/[0.03]"
+              class="hidden size-11 items-center justify-center rounded-lg bg-card text-muted-foreground transition hover:bg-accent hover:text-foreground disabled:pointer-events-none disabled:opacity-35 dark:bg-white/[0.03]"
               aria-label={previousYearsLabel}
               data-activity-year-scroll="left"
             >
@@ -279,7 +279,7 @@ const activityDataJson = JSON.stringify(activityByYear).replace(/</g, "\\u003c")
             </div>
             <button
               type="button"
-              class="hidden size-10 items-center justify-center rounded-lg bg-background text-muted-foreground transition hover:bg-accent hover:text-foreground disabled:pointer-events-none disabled:opacity-35 dark:bg-white/[0.03]"
+              class="hidden size-11 items-center justify-center rounded-lg bg-card text-muted-foreground transition hover:bg-accent hover:text-foreground disabled:pointer-events-none disabled:opacity-35 dark:bg-white/[0.03]"
               aria-label={nextYearsLabel}
               data-activity-year-scroll="right"
             >

@@ -1,6 +1,6 @@
 ---
 import Layout from "@/layouts/main.astro"
-import HomeFeatureGrid from "@/components/lists/HomeFeatureGrid.astro"
+import PostFeatureGrid from "@/components/lists/PostFeatureGrid.astro"
 import PageHeader from "@/components/layout/PageHeader.astro"
 import PostCardGrid from "@/components/lists/PostCardGrid.astro"
 import PostArchiveList from "@/components/lists/PostArchiveList.astro"
@@ -24,7 +24,6 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.props as { lang: Locale }
 const posts = await getPostsForLocale(lang)
-const lead = posts[0]
 const featurePosts = posts.slice(0, 3)
 const gridPosts = posts.slice(3, POSTS_PER_PAGE)
 const totalPages = getTotalPages(posts.length, POSTS_PER_PAGE)
@@ -42,7 +41,7 @@ const archivePosts = posts.slice(0, POSTS_PER_PAGE)
   path="/"
   title={t(lang, "site.name")}
   description={t(lang, "site.description")}
-  image={lead?.data.heroImage}
+  image={SITE_CONFIG.defaultOgImage}
   dynamicGlass
 >
   {
@@ -101,7 +100,7 @@ const archivePosts = posts.slice(0, POSTS_PER_PAGE)
         data-home-surface
       >
         <h1 class="sr-only">{t(lang, "site.name")}</h1>
-        <HomeFeatureGrid posts={featurePosts} />
+        <PostFeatureGrid posts={featurePosts} priorityFirst />
         {gridPosts.length > 0 && (
           <PostCardGrid
             posts={gridPosts}
