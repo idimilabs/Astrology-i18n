@@ -8,20 +8,38 @@ async function readProjectFile(path) {
   return readFile(new URL(path, root), "utf8")
 }
 
-test("Preserve redesign keeps the approved brand palette", async () => {
-  const [styles, design, ogImage] = await Promise.all([
+test("Preserve redesign keeps the approved monochrome palette", async () => {
+  const [styles, design, ogImage, logo, favicon] = await Promise.all([
     readProjectFile("src/styles/global.css"),
     readProjectFile("DESIGN.md"),
     readProjectFile("public/open-graph.svg"),
+    readProjectFile("src/assets/logo.svg"),
+    readProjectFile("public/favicon.svg"),
   ])
 
-  assert.match(styles, /--primary:\s*oklch\(0\.5505 0\.1868 255\.82\)/)
-  assert.match(styles, /--background:\s*oklch\(0\.9743 0\.0068 247\.89\)/)
+  assert.match(styles, /--primary:\s*oklch\(0\.205 0 0\)/)
+  assert.match(styles, /--background:\s*oklch\(1 0 0\)/)
   assert.match(styles, /--card:\s*oklch\(1 0 0\)/)
-  assert.match(design, /primary: "#006EDB"/)
+  assert.match(styles, /--ring:\s*oklch\(0\.556 0 0\)/)
+  assert.doesNotMatch(styles, /006EDB|5AA9FF/i)
+  for (const theme of [/:root\s*{([\s\S]*?)\n}/, /\.dark\s*{([\s\S]*?)\n}/]) {
+    const block = styles.match(theme)?.[1] ?? ""
+    for (const match of block.matchAll(/--([\w-]+):\s*oklch\([\d.]+\s+([\d.]+)/g)) {
+      if (match[1] !== "destructive") assert.equal(Number(match[2]), 0)
+    }
+  }
+  assert.match(design, /primary: "#171717"/)
+  assert.doesNotMatch(design, /006EDB|5AA9FF/i)
   assert.match(ogImage, />Polyglow<\/text>/)
   assert.doesNotMatch(ogImage, /PolyGlow/)
-  assert.doesNotMatch(ogImage, /purple|violet/i)
+  for (const match of ogImage.matchAll(/#([0-9a-f]{6})/gi)) {
+    const [, hex] = match
+    assert.equal(hex.slice(0, 2), hex.slice(2, 4))
+    assert.equal(hex.slice(2, 4), hex.slice(4, 6))
+  }
+  assert.match(logo, /fill: #000/)
+  assert.match(favicon, /fill: #000/)
+  assert.match(favicon, /prefers-color-scheme: dark/)
 })
 
 test("Preserve redesign keeps public contracts while adding accessibility", async () => {

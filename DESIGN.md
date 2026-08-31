@@ -1,41 +1,41 @@
 ---
 version: "alpha"
 name: "Polyglow"
-description: "A multilingual editorial Astro theme with a primary blue accent, cool blue-gray light surfaces, white cards, image-led glass cards, compact archives, dark mode, Astro view transitions, Pagefind search, and long-form typography."
+description: "A multilingual editorial Astro theme with a black, white, and gray interface, image-led glass cards, compact archives, dark mode, Astro view transitions, Pagefind search, and long-form typography."
 colors:
-  background: "#F3F7FB"
-  foreground: "#172231"
+  background: "#FFFFFF"
+  foreground: "#0A0A0A"
   card: "#FFFFFF"
-  cardForeground: "#172231"
+  cardForeground: "#0A0A0A"
   popover: "#FFFFFF"
-  popoverForeground: "#172231"
-  primary: "#006EDB"
-  primaryForeground: "#FFFFFF"
-  secondary: "#E8F0F8"
-  secondaryForeground: "#172231"
-  muted: "#E8F0F8"
-  mutedForeground: "#526477"
-  accent: "#DCEBFA"
-  accentForeground: "#0D4F8F"
+  popoverForeground: "#0A0A0A"
+  primary: "#171717"
+  primaryForeground: "#FAFAFA"
+  secondary: "#F5F5F5"
+  secondaryForeground: "#171717"
+  muted: "#F5F5F5"
+  mutedForeground: "#737373"
+  accent: "#F5F5F5"
+  accentForeground: "#171717"
   destructive: "#DC2626"
-  border: "#D8E4F0"
-  input: "#D8E4F0"
-  ring: "#006EDB"
+  border: "#E5E5E5"
+  input: "#E5E5E5"
+  ring: "#737373"
   darkBackground: "#0A0A0A"
   darkForeground: "#FAFAFA"
   darkCard: "#171717"
   darkPopover: "#171717"
-  darkPrimary: "#5AA9FF"
-  darkPrimaryForeground: "#0A0A0A"
+  darkPrimary: "#E5E5E5"
+  darkPrimaryForeground: "#171717"
   darkSecondary: "#262626"
   darkSecondaryForeground: "#FAFAFA"
   darkMuted: "#262626"
-  darkMutedForeground: "#A1A1A1"
+  darkMutedForeground: "#A3A3A3"
   darkAccent: "#262626"
   darkAccentForeground: "#FAFAFA"
   darkBorder: "#262626"
   darkInput: "#262626"
-  darkRing: "#5AA9FF"
+  darkRing: "#A3A3A3"
   glassOverlay: "#000000"
   glassOverlayStrong: "#262626"
   glassBorder: "#FFFFFF"
@@ -126,7 +126,7 @@ components:
     rounded: "{rounded.lg}"
     padding: "{spacing.lg}"
   taxonomy-card:
-    backgroundColor: "{colors.background}"
+    backgroundColor: "{colors.card}"
     textColor: "{colors.foreground}"
     rounded: "{rounded.lg}"
     padding: "{spacing.lg}"
@@ -144,7 +144,7 @@ components:
     rounded: "{rounded.md}"
     padding: "12px"
   search-input:
-    backgroundColor: "{colors.background}"
+    backgroundColor: "{colors.card}"
     textColor: "{colors.foreground}"
     rounded: "{rounded.xl}"
     padding: "{spacing.md}"
@@ -172,9 +172,9 @@ output. The live visual system is implemented in `src/styles/global.css`; this
 file records the same system as tokens and design rules so later UI work keeps
 the current theme intact.
 
-The current interface is content-first, image-led, and compact. The light theme
-uses the exact `#006EDB` brand blue, a cool blue-gray page background and white
-cards. It also uses strong real imagery, glass panels over post covers and
+The current interface is neutral, content-first, image-led, and compact. The
+light theme uses white reading surfaces, near-black text, and restrained gray
+structure. It also uses strong real imagery, glass panels over post covers and
 article heroes, quiet navigation, dense archive rows, readable prose, Pagefind
 search styling, Astro view transitions, and a light/dark theme switcher.
 
@@ -188,24 +188,24 @@ and dark values.
 
 ## Color System
 
-The palette is a cool editorial publishing palette:
+The interface palette is black, white, and gray:
 
 - `background` and `foreground` define the main reading surface.
 - `card`, `popover`, `secondary`, `muted`, and `accent` support cards,
   dropdowns, hover states, chips, search results, and low-emphasis UI.
 - `primary` and `primaryForeground` define high-emphasis actions, links,
-  current-location indicators and focus treatment. The light-theme primary is
-  the exact brand color `#006EDB`; dark mode uses a lighter blue interaction
-  step for contrast while the logo keeps the exact brand color.
+  current-location indicators and focus treatment through neutral contrast.
 - `border`, `input`, and `ring` define structure and focus affordances.
-- `destructive` is reserved for destructive or error states.
+- `destructive` is the only semantic hue and remains reserved for destructive
+  or error states; it is not a brand or navigation color.
 - `glassOverlay`, `glassOverlayStrong`, `glassBorder`, and
   `glassSurfaceLight` support post-card panels, article hero panels, dropdowns,
   and mobile navigation.
 
-The light page background is cool blue-gray and elevated cards remain white.
-Dark mode keeps the existing neutral hierarchy with darker surfaces and lighter
-text. Use the dark tokens as design references; runtime switching stays in CSS.
+The light page background and elevated cards remain white, separated by neutral
+borders, shadows, and spacing. Dark mode keeps the same neutral hierarchy with
+darker surfaces and lighter text. Use the dark tokens as design references;
+runtime switching stays in CSS.
 
 ## Typography
 
@@ -251,7 +251,7 @@ language, but the fixed header itself uses theme background and border tokens
 for legibility.
 
 Text cards and taxonomy cards stay quiet: white surfaces in light mode, small
-radius, thin cool border, and modest hover movement.
+radius, thin neutral border, and modest hover movement.
 
 Do not create cards inside cards. Do not turn full page sections into floating
 cards.
