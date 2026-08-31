@@ -1,3 +1,6 @@
+
+</think>
+
 # Polyglow
 
 [中文说明](readme-zh.md)
@@ -54,7 +57,7 @@ account, wallet, or Cloudflare credentials.
 
 ## Requirements
 
-- Node.js 24 or newer
+- Node.js 22 or newer
 - pnpm
 
 ## Start
