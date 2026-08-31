@@ -60,7 +60,7 @@ const currentNavigationKey = getPrimaryNavigationKey(path)
             >
               {item.labelByLocale[lang]}
             </a>
-            <div class="desktop-nav-dropdown nav-dropdown pointer-events-none absolute top-full left-1/2 grid min-w-48 -translate-x-1/2 translate-y-2 gap-1 rounded-xl p-2 opacity-0 shadow-xl transition-all duration-200 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100">
+            <div class="desktop-nav-dropdown nav-dropdown pointer-events-none absolute top-full left-1/2 grid min-w-48 -translate-x-1/2 translate-y-2 gap-1 rounded-2xl p-2 opacity-0 shadow-xl transition-all duration-200 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100">
               <a
                 class="rounded-lg px-3 py-2 text-sm font-medium text-foreground hover:bg-muted"
                 href={localePath(lang, `/category/${item.slug}/`)}

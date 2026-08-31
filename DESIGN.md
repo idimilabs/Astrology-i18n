@@ -88,13 +88,10 @@ typography:
     lineHeight: "1.5"
     letterSpacing: "0px"
 rounded:
-  sm: "6px"
-  md: "8px"
-  lg: "10px"
-  xl: "14px"
-  card: "24px"
-  hero: "28px"
-  pill: "999px"
+  standard: "10px"
+  medium: "16px"
+  large: "24px"
+  full: "999px"
 spacing:
   xs: "4px"
   sm: "8px"
@@ -117,22 +114,22 @@ components:
   post-card:
     backgroundColor: "{colors.glassOverlay}"
     textColor: "{colors.primaryForeground}"
-    rounded: "{rounded.card}"
+    rounded: "{rounded.medium}"
     padding: "{spacing.md}"
   article-hero-panel:
     backgroundColor: "{colors.glassOverlayStrong}"
     textColor: "{colors.primaryForeground}"
-    rounded: "{rounded.xl}"
+    rounded: "{rounded.medium}"
     padding: "{spacing.lg}"
   text-card:
     backgroundColor: "{colors.card}"
     textColor: "{colors.cardForeground}"
-    rounded: "{rounded.lg}"
+    rounded: "{rounded.standard}"
     padding: "{spacing.lg}"
   taxonomy-card:
     backgroundColor: "{colors.card}"
     textColor: "{colors.foreground}"
-    rounded: "{rounded.lg}"
+    rounded: "{rounded.standard}"
     padding: "{spacing.lg}"
   nav-link:
     textColor: "{colors.mutedForeground}"
@@ -140,32 +137,43 @@ components:
   primary-button:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.primaryForeground}"
-    rounded: "{rounded.md}"
+    rounded: "{rounded.standard}"
     padding: "12px"
   secondary-button:
     backgroundColor: "{colors.secondary}"
     textColor: "{colors.secondaryForeground}"
-    rounded: "{rounded.md}"
+    rounded: "{rounded.standard}"
     padding: "12px"
   search-input:
     backgroundColor: "{colors.card}"
     textColor: "{colors.foreground}"
-    rounded: "{rounded.xl}"
+    rounded: "{rounded.medium}"
     padding: "{spacing.md}"
+  nav-dropdown:
+    backgroundColor: "{colors.popover}"
+    textColor: "{colors.popoverForeground}"
+    rounded: "{rounded.medium}"
+    padding: "{spacing.sm}"
+  nav-dropdown-item:
+    rounded: "{rounded.standard}"
+  author-panel:
+    backgroundColor: "{colors.card}"
+    textColor: "{colors.cardForeground}"
+    rounded: "{rounded.large}"
   meta-pill:
     backgroundColor: "{colors.muted}"
     textColor: "{colors.foreground}"
-    rounded: "{rounded.pill}"
+    rounded: "{rounded.full}"
     padding: "{spacing.sm}"
   glass-meta-pill:
     backgroundColor: "{colors.glassOverlayStrong}"
     textColor: "{colors.primaryForeground}"
-    rounded: "{rounded.pill}"
+    rounded: "{rounded.full}"
     padding: "{spacing.sm}"
   destructive-button:
     backgroundColor: "{colors.destructive}"
     textColor: "{colors.primaryForeground}"
-    rounded: "{rounded.md}"
+    rounded: "{rounded.standard}"
     padding: "12px"
 ---
 
@@ -263,9 +271,20 @@ cards.
 
 ## Shapes
 
-The base runtime radius is 10px. Small controls use 6px, standard buttons and
-dropdown items use 8px, regular cards use 10px to 14px, image cards use 24px to
-28px, and metadata chips use fully rounded pills.
+The runtime radius scale has four levels:
+
+- `rounded-lg` is 10px for buttons, list items, text cards, and inline code.
+- `rounded-2xl` is 16px for inputs, popovers, article cards, and article-card
+  text backgrounds.
+- `rounded-3xl` is 24px for large independent content panels such as the author
+  profile.
+- `rounded-full` is 999px for avatars, tags, pill buttons, and circular controls.
+
+All article-card shells and text backgrounds use `rounded-2xl`, including the
+homepage feature cards, regular article cards, article-detail hero, and related
+article cards. Page-section backgrounds and contribution heatmap cells remain
+square. Components use these four utilities and never arbitrary-value radius
+utilities.
 
 ## Component Guidance
 

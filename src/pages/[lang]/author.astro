@@ -176,7 +176,7 @@ const activityDataJson = JSON.stringify(activityByYear).replace(/</g, "\\u003c")
   <PageSection class="py-8" pagefindIgnore={false}>
     <PageHeader title={title} subtitle={author?.data.bio} />
     <article
-      class="author-card mx-auto mt-16 grid max-w-5xl gap-8 rounded-[2rem] bg-card p-8 sm:p-12 md:grid-cols-[11rem_minmax(0,1fr)] md:items-center lg:p-16 dark:bg-white/[0.03]"
+      class="author-card mx-auto mt-16 grid max-w-5xl gap-8 rounded-3xl bg-card p-8 sm:p-12 md:grid-cols-[11rem_minmax(0,1fr)] md:items-center lg:p-16 dark:bg-white/[0.03]"
       data-author-card
     >
       <OptimizedPicture
@@ -229,7 +229,7 @@ const activityDataJson = JSON.stringify(activityByYear).replace(/</g, "\\u003c")
       </div>
     </article>
     <section
-      class="mx-auto mt-24 max-w-5xl rounded-[2rem] bg-muted/15 p-6 sm:p-10 dark:bg-white/[0.015]"
+      class="mx-auto mt-24 max-w-5xl bg-muted/15 p-6 sm:p-10 dark:bg-white/[0.015]"
       data-writing-activity
       data-activity-locale={lang}
       data-activity-published-text={publishedText}
@@ -314,7 +314,7 @@ const activityDataJson = JSON.stringify(activityByYear).replace(/</g, "\\u003c")
                 <div class="grid shrink-0 gap-1">
                   {week.map((day) => (
                     <span
-                      class={`size-3 rounded-[0.2rem] ${day.levelClass}`}
+                      class={`size-3 ${day.levelClass}`}
                       data-day={day.key}
                       title={`${day.label}: ${day.count}`}
                     />
@@ -331,15 +331,15 @@ const activityDataJson = JSON.stringify(activityByYear).replace(/</g, "\\u003c")
         >
           <div class="flex items-center gap-2">
             <span>{t(lang, "pages.author.less")}</span>
-            <span class="size-3 rounded-[0.2rem] bg-muted"
+            <span class="size-3 bg-muted"
             ></span>
-            <span class="size-3 rounded-[0.2rem] bg-[#9be9a8] dark:bg-[#0e4429]"
+            <span class="size-3 bg-[#9be9a8] dark:bg-[#0e4429]"
             ></span>
-            <span class="size-3 rounded-[0.2rem] bg-[#40c463] dark:bg-[#006d32]"
+            <span class="size-3 bg-[#40c463] dark:bg-[#006d32]"
             ></span>
-            <span class="size-3 rounded-[0.2rem] bg-[#30a14e] dark:bg-[#26a641]"
+            <span class="size-3 bg-[#30a14e] dark:bg-[#26a641]"
             ></span>
-            <span class="size-3 rounded-[0.2rem] bg-[#216e39] dark:bg-[#39d353]"
+            <span class="size-3 bg-[#216e39] dark:bg-[#39d353]"
             ></span>
             <span>{t(lang, "pages.author.more")}</span>
           </div>
@@ -523,7 +523,7 @@ const activityDataJson = JSON.stringify(activityByYear).replace(/</g, "\\u003c")
               column.className = "grid shrink-0 gap-1"
               for (const day of week) {
                 const cell = document.createElement("span")
-                cell.className = `size-3 rounded-[0.2rem] ${day.levelClass}`
+                cell.className = `size-3 ${day.levelClass}`
                 cell.dataset.day = day.key
                 cell.title = `${day.label}: ${day.count}`
                 column.append(cell)

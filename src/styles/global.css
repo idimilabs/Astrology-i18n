@@ -31,10 +31,10 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-full: 999px;
   --animate-scale-up: scale-up 0.3s ease forwards;
   --animate-scale-down: scale-down 0.3s ease forwards;
   --animate-fade-in-up: fade-in-up 0.5s ease forwards;
@@ -449,11 +449,11 @@ html:lang(ar) .article-prose :where(p, li) {
 }
 
 .content-prose :where(a) {
-  @apply font-medium text-primary underline decoration-primary/45 underline-offset-4 transition-colors hover:decoration-primary active:text-primary/70 focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+  @apply font-medium text-primary underline decoration-primary/45 underline-offset-4 transition-colors hover:decoration-primary active:text-primary/70 focus-visible:rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
 }
 
 .content-prose :where(:not(pre) > code) {
-  @apply rounded-md bg-muted px-1.5 py-0.5 text-sm text-foreground;
+  @apply rounded-lg bg-muted px-1.5 py-0.5 text-sm text-foreground;
   overflow-wrap: anywhere;
   word-break: break-word;
 }
@@ -495,7 +495,7 @@ html:lang(ar) .article-prose :where(p, li) {
 }
 
 .archive-row {
-  @apply grid w-full grid-cols-1 gap-1 rounded-md px-3 py-3 text-sm transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-card sm:grid-cols-[9rem_minmax(0,1fr)] sm:items-center sm:gap-x-5 sm:px-5 md:grid-cols-[7rem_minmax(0,1fr)_minmax(8rem,13rem)_5rem] md:gap-x-4 lg:grid-cols-[9rem_minmax(0,1fr)_minmax(9rem,15rem)_9rem] lg:gap-x-5 lg:px-6 dark:hover:bg-neutral-900/40;
+  @apply grid w-full grid-cols-1 gap-1 rounded-lg px-3 py-3 text-sm transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-card sm:grid-cols-[9rem_minmax(0,1fr)] sm:items-center sm:gap-x-5 sm:px-5 md:grid-cols-[7rem_minmax(0,1fr)_minmax(8rem,13rem)_5rem] md:gap-x-4 lg:grid-cols-[9rem_minmax(0,1fr)_minmax(9rem,15rem)_9rem] lg:gap-x-5 lg:px-6 dark:hover:bg-neutral-900/40;
 }
 
 .archive-row__date {
@@ -553,7 +553,7 @@ html:lang(ar) .article-prose :where(p, li) {
   --pagefind-ui-background: var(--card);
   --pagefind-ui-border: var(--border);
   --pagefind-ui-tag: var(--muted);
-  --pagefind-ui-border-radius: 0.75rem;
+  --pagefind-ui-border-radius: var(--radius-2xl);
   --pagefind-ui-font: var(--font-sans);
   color: var(--foreground);
 }
@@ -636,11 +636,11 @@ html:lang(ar) .article-prose :where(p, li) {
 }
 
 .not-found-search__input {
-  @apply min-h-12 min-w-0 flex-1 rounded-xl border border-input bg-card px-4 text-base text-foreground shadow-sm transition outline-none focus:ring-2 focus:ring-ring/30;
+  @apply min-h-12 min-w-0 flex-1 rounded-2xl border border-input bg-card px-4 text-base text-foreground shadow-sm transition outline-none focus:ring-2 focus:ring-ring/30;
 }
 
 .not-found-search__button {
-  @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-primary px-5 text-sm font-semibold text-primary-foreground transition hover:-translate-y-0.5 hover:opacity-90;
+  @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-primary px-5 text-sm font-semibold text-primary-foreground transition hover:-translate-y-0.5 hover:opacity-90;
 }
 
 .category-tag {

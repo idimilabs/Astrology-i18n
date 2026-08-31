@@ -51,13 +51,13 @@ const TitleTag = headingLevel === 3 ? "h3" : "h2"
         return (
           <article
             class:list={[
-              "post-card press-feedback group relative col-span-12 w-full min-w-0 max-w-full overflow-hidden rounded-3xl bg-muted text-white",
+              "post-card press-feedback group relative col-span-12 w-full min-w-0 max-w-full overflow-hidden rounded-2xl bg-muted text-white",
               compact
                 ? "aspect-[16/11] min-h-[19rem] sm:min-h-[22rem]"
                 : "aspect-[3/4] sm:min-h-[24rem]",
               isLead
-                ? "sm:aspect-[16/9] sm:min-h-[27rem] lg:col-span-1 lg:row-span-2 lg:aspect-auto lg:min-h-0 lg:rounded-[1.75rem]"
-                : "sm:col-span-6 sm:aspect-[3/4] lg:col-span-1 lg:aspect-auto lg:min-h-0 lg:rounded-[1.75rem]",
+                ? "sm:aspect-[16/9] sm:min-h-[27rem] lg:col-span-1 lg:row-span-2 lg:aspect-auto lg:min-h-0"
+                : "sm:col-span-6 sm:aspect-[3/4] lg:col-span-1 lg:aspect-auto lg:min-h-0",
             ]}
             data-glass-card
           >
@@ -85,7 +85,7 @@ const TitleTag = headingLevel === 3 ? "h3" : "h2"
               class:list={[
                 "post-card__content absolute z-10 text-center text-white",
                 isLead
-                  ? "inset-x-1.5 bottom-1.5 rounded-2xl p-4 sm:p-6 lg:rounded-[1.35rem] lg:p-8"
+                  ? "inset-x-1.5 bottom-1.5 rounded-2xl p-4 sm:p-6 lg:p-8"
                   : "inset-x-1.5 bottom-1.5 rounded-2xl p-4 sm:p-5",
               ]}
               data-glass-target

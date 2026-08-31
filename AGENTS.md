@@ -158,6 +158,10 @@ Use pnpm for Node.js work. Do not add npm, yarn, or bun lockfiles.
 
 - Read `DESIGN.md` before changing colors, typography, spacing, radii, cards,
   navigation, article prose, search styling, or component appearance.
+- Treat the `DESIGN.md` shape scale as authoritative. Components use only
+  `rounded-lg`, `rounded-2xl`, `rounded-3xl`, or `rounded-full`; article-card
+  shells and text panels use `rounded-2xl`, while page-section backgrounds and
+  contribution heatmap cells remain square.
 - Keep the live runtime theme in `src/styles/global.css` unless the task is
   specifically to wire generated design tokens into runtime CSS.
 - Use the existing `Icon` component and configured Lucide icon allowlist. Add

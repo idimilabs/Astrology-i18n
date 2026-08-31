@@ -29,15 +29,15 @@ const dateLabel = new Intl.DateTimeFormat(post.data.locale, {
   year: "numeric",
 }).format(post.data.pubDate)
 const portraitCardShape =
-  "aspect-[3/4] rounded-3xl sm:min-h-[24rem]"
+  "aspect-[3/4] rounded-2xl sm:min-h-[24rem]"
 const cardShape = {
-  lead: "aspect-[3/4] rounded-[1.75rem] sm:aspect-[16/9] sm:min-h-[27rem]",
+  lead: "aspect-[3/4] rounded-2xl sm:aspect-[16/9] sm:min-h-[27rem]",
   wide: `${portraitCardShape} xl:aspect-[16/10] xl:min-h-[20rem]`,
   portrait: portraitCardShape,
 }[variant]
 const contentShape =
   variant === "lead"
-    ? "left-1.5 bottom-1.5 max-w-[34rem] rounded-[1.35rem] p-5 sm:p-8"
+    ? "left-1.5 bottom-1.5 max-w-[34rem] rounded-2xl p-5 sm:p-8"
     : "inset-x-1.5 bottom-1.5 rounded-2xl p-4 sm:p-5"
 const titleClass =
   variant === "lead"
