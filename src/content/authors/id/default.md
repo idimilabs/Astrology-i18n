@@ -3,8 +3,8 @@ slug: default
 name: "Redaksi Polyglow"
 bio: "Catatan tentang pembangunan produk, investasi, sistem teknis, dan sistem konten yang tahan lama."
 socials:
-  - { label: "GitHub", url: "https://github.com/zbzailabs/Polyglow" }
-  - { label: "X", url: "https://x.com/zbzailabs" }
+  - { label: "GitHub", url: "https://github.com/zbzailabs" }
+  - { label: "X", url: "https://x.com/dimilabs" }
   - { label: "Website", url: "/id/" }
   - { label: "RSS", url: "/id/rss.xml" }
 locale: id

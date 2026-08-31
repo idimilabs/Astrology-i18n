@@ -45,7 +45,9 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
+  --background: #f5f8fc;
+  --page-background-accent: #006edb;
+  --page-background-tint: #e8f2ff;
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -75,7 +77,9 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: #0b1220;
+  --page-background-accent: #0a84ff;
+  --page-background-tint: #172a46;
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -119,6 +123,17 @@
 
   body {
     @apply flex min-h-dvh flex-col bg-background text-foreground;
+    background-image:
+      radial-gradient(
+        circle at 12% -8%,
+        color-mix(in oklab, var(--page-background-accent) 22%, transparent),
+        transparent 32rem
+      ),
+      linear-gradient(
+        to bottom,
+        transparent,
+        color-mix(in oklab, var(--background) 96%, var(--page-background-tint))
+      );
   }
 
   ::selection {
@@ -187,7 +202,6 @@
 
 .header-glass {
   background: var(--card);
-  border-bottom: 1px solid var(--border);
 }
 
 .site-logo {

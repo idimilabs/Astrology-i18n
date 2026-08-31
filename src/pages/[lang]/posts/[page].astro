@@ -22,7 +22,7 @@ export async function getStaticPaths({ paginate }: { paginate: any }) {
       })
         .map((path: any) => ({
           ...path,
-          cacheKey: contentCacheKey(path.props.page.data),
+          cacheKey: `${contentCacheKey(path.props.page.data)}|pages:${path.props.page.lastPage}`,
         }))
         .filter(({ props }: { props: { page: { currentPage: number } } }) =>
         props.page.currentPage > 1

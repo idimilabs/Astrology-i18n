@@ -35,6 +35,7 @@ const sitemapExcludedPathPatterns = [
 
 export default defineConfig({
   output: "static",
+  cacheDir: process.env.ASTRO_CACHE_DIR,
   site: SITE_CONFIG.url,
   trailingSlash: "always",
   compressHTML: true,

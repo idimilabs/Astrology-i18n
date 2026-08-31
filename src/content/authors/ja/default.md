@@ -3,8 +3,8 @@ slug: default
 name: "Polyglow 編集部"
 bio: "プロダクト構築、投資の考察、技術システム、長く使えるコンテンツ基盤についての記録。"
 socials:
-  - { label: "GitHub", url: "https://github.com/zbzailabs/Polyglow" }
-  - { label: "X", url: "https://x.com/zbzailabs" }
+  - { label: "GitHub", url: "https://github.com/zbzailabs" }
+  - { label: "X", url: "https://x.com/dimilabs" }
   - { label: "Website", url: "/ja/" }
   - { label: "RSS", url: "/ja/rss.xml" }
 locale: ja

@@ -16,14 +16,9 @@ test("Astro 7 dependency contract is active", async () => {
   const packageJson = JSON.parse(await readProjectFile("package.json"))
 
   assert.equal(
-    majorRange(packageJson.dependencies.astro),
-    7,
-    "astro dependency must target Astro 7"
-  )
-  assert.match(
     packageJson.dependencies.astro,
-    /7\.2\./,
-    "astro dependency must target Astro 7.2"
+    "^7.2.9",
+    "astro dependency must include the incremental build fixes released by 7.2.9"
   )
   assert.equal(
     majorRange(packageJson.dependencies["@astrojs/mdx"]),
@@ -68,6 +63,11 @@ test("Astro 7 stable features are configured without removed flags", async () =>
     /incrementalBuild:\s*true/,
     "Astro 7.2 incremental builds must be explicitly enabled"
   )
+  assert.match(
+    astroConfig,
+    /cacheDir:\s*process\.env\.ASTRO_CACHE_DIR/,
+    "Astro cache directory must support a persistent CI path"
+  )
   assert.equal(
     contentConfig.match(/deferRender:\s*true/g)?.length,
     3,
@@ -108,6 +108,19 @@ test("incremental builds cover content-driven static paths only", async () => {
 
   for (const route of cacheKeyRoutes) {
     assert.match(await readProjectFile(route), /cacheKey:/, `${route} needs a cache key`)
+  }
+
+  for (const route of [
+    "src/pages/[lang]/[page].astro",
+    "src/pages/[lang]/posts/[page].astro",
+    "src/pages/[lang]/category/[slug]/[page].astro",
+    "src/pages/[lang]/tags/[slug]/[page].astro",
+  ]) {
+    assert.match(
+      await readProjectFile(route),
+      /cacheKey:[^\n]*page\.lastPage/,
+      `${route} must invalidate when pagination boundaries change`
+    )
   }
 
   assert.match(

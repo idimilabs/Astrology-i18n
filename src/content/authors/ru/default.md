@@ -3,8 +3,8 @@ slug: default
 name: "Редакция Polyglow"
 bio: "Заметки о создании продуктов, инвестиционном мышлении, технических системах и устойчивых контентных системах."
 socials:
-  - { label: "GitHub", url: "https://github.com/zbzailabs/Polyglow" }
-  - { label: "X", url: "https://x.com/zbzailabs" }
+  - { label: "GitHub", url: "https://github.com/zbzailabs" }
+  - { label: "X", url: "https://x.com/dimilabs" }
   - { label: "Website", url: "/ru/" }
   - { label: "RSS", url: "/ru/rss.xml" }
 locale: ru

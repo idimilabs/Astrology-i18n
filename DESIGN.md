@@ -1,9 +1,11 @@
 ---
 version: "alpha"
 name: "Polyglow"
-description: "A multilingual editorial Astro theme with a black, white, and gray interface, image-led glass cards, compact archives, dark mode, Astro view transitions, Pagefind search, and long-form typography."
+description: "A multilingual editorial Astro theme with a cool blue page background, neutral content surfaces, image-led glass cards, compact archives, dark mode, Astro view transitions, Pagefind search, and long-form typography."
 colors:
-  background: "#FFFFFF"
+  background: "#F5F8FC"
+  pageBackgroundAccent: "#006EDB"
+  pageBackgroundTint: "#E8F2FF"
   foreground: "#0A0A0A"
   card: "#FFFFFF"
   cardForeground: "#0A0A0A"
@@ -21,7 +23,9 @@ colors:
   border: "#E5E5E5"
   input: "#E5E5E5"
   ring: "#737373"
-  darkBackground: "#0A0A0A"
+  darkBackground: "#0B1220"
+  darkPageBackgroundAccent: "#0A84FF"
+  darkPageBackgroundTint: "#172A46"
   darkForeground: "#FAFAFA"
   darkCard: "#171717"
   darkPopover: "#171717"
@@ -173,8 +177,9 @@ file records the same system as tokens and design rules so later UI work keeps
 the current theme intact.
 
 The current interface is neutral, content-first, image-led, and compact. The
-light theme uses white reading surfaces, near-black text, and restrained gray
-structure. It also uses strong real imagery, glass panels over post covers and
+light theme uses a cool blue page background, white reading surfaces,
+near-black text, and restrained gray structure. It also uses strong real
+imagery, glass panels over post covers and
 article heroes, quiet navigation, dense archive rows, readable prose, Pagefind
 search styling, Astro view transitions, and a light/dark theme switcher.
 
@@ -202,10 +207,11 @@ The interface palette is black, white, and gray:
   `glassSurfaceLight` support post-card panels, article hero panels, dropdowns,
   and mobile navigation.
 
-The light page background and elevated cards remain white, separated by neutral
-borders, shadows, and spacing. Dark mode keeps the same neutral hierarchy with
-darker surfaces and lighter text. Use the dark tokens as design references;
-runtime switching stays in CSS.
+The page background uses a cool blue base, a soft upper-left glow, and a subtle
+vertical tint. Elevated cards remain white in light mode, separated by neutral
+borders, shadows, and spacing. Dark mode uses the same background treatment on
+a blue-black base while keeping the neutral surface hierarchy and lighter text.
+Use the dark tokens as design references; runtime switching stays in CSS.
 
 ## Typography
 
@@ -247,8 +253,7 @@ blur, and restrained shadow.
 
 Article heroes use the same image-first language, with a centered glass title
 panel over the image. Header, dropdown, and mobile navigation share the glass
-language, but the fixed header itself uses theme background and border tokens
-for legibility.
+language, but the fixed header itself uses the theme background for legibility.
 
 Text cards and taxonomy cards stay quiet: white surfaces in light mode, small
 radius, thin neutral border, and modest hover movement.
@@ -264,7 +269,7 @@ dropdown items use 8px, regular cards use 10px to 14px, image cards use 24px to
 
 ## Component Guidance
 
-- **Header and nav:** compact height, theme background, subtle border, grouped
+- **Header and nav:** compact height, theme background, grouped
   category dropdowns, search, language switcher, theme switcher, and mobile nav.
   The current primary destination keeps the standard underline visible, uses
   stronger text weight, and exposes `aria-current="page"`.

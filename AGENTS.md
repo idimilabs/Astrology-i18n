@@ -41,11 +41,27 @@ addresses.
 - Stop managed development server: `pnpm dev:stop`
 - Start development server with JSON logs: `pnpm dev:json`
 - Typecheck and build: `pnpm build`
+- Force a cold Astro build: `pnpm astro build --force`
 - Verify Astro 7 upgrade contract: `pnpm test:upgrade`
 - Preview built site: `pnpm preview`
 - Deploy prebuilt static assets to Cloudflare Workers: `pnpm deploy`
 
 Use pnpm for Node.js work. Do not add npm, yarn, or bun lockfiles.
+
+## Build Cache
+
+- Without `ASTRO_CACHE_DIR`, local builds use Astro's default cache directory.
+- CI must set `ASTRO_CACHE_DIR` and `PNPM_STORE_DIR` to directories preserved
+  across jobs:
+
+  ```yaml
+  ASTRO_CACHE_DIR: <cross-job persistent directory>
+  PNPM_STORE_DIR: <cross-job persistent directory>
+  ```
+
+- Keep `dist` and `node_modules` disposable.
+- Use `pnpm astro build --force` when a deliberate cold build is required.
+- Do not add a CI or deployment workflow solely to persist these directories.
 
 ## Development Workflow
 
