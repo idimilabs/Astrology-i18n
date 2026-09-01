@@ -9,8 +9,8 @@ import pagefind from "./src/integrations/pagefind.ts"
 import { SITE_CONFIG } from "./src/config/site.ts"
 
 const googleTagManagerEnabled =
-  process.env.PUBLIC_GTM_ENABLED === "true" &&
-  /^GTM-[A-Z0-9]+$/i.test(process.env.PUBLIC_GTM_ID ?? "")
+  SITE_CONFIG.analytics.googleTagManager.enabled &&
+  Boolean(SITE_CONFIG.analytics.googleTagManager.containerId)
 const sitemapLocaleMap = {
   en: "en-US",
   zh: "zh-CN",

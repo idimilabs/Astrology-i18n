@@ -168,7 +168,6 @@ heroBlurDataURL: "data:image/..."
 
 ```js
 assets: {
-  publicBaseUrl: publicAssetBaseUrl,
   remotePatterns: [
     ...(publicAssetHost
       ? [{ protocol: "https", hostname: publicAssetHost }]

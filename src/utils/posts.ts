@@ -1,6 +1,6 @@
 import { getCollection, type CollectionEntry } from "astro:content"
 
-import { LOCALES, type Locale } from "@/config/locales"
+import type { Locale } from "@/config/locales"
 import { normalizeCategorySlug, normalizeTagSlug } from "@/config/taxonomy"
 import { normalizeContentSlug } from "@/utils/content-slug"
 
@@ -52,8 +52,4 @@ export async function getPostsByCategory(locale: Locale, slug: string): Promise<
 
 export async function getPostsByTag(locale: Locale, slug: string): Promise<PostEntry[]> {
   return (await getPostsForLocale(locale)).filter((post) => postTagSlugs(post).includes(slug))
-}
-
-export function localeStaticPaths() {
-  return LOCALES.map((locale) => ({ params: { lang: locale }, props: { lang: locale } }))
 }

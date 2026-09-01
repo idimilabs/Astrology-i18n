@@ -187,7 +187,6 @@ the new HTTPS host in `src/config/site.ts`:
 
 ```js
 assets: {
-  publicBaseUrl: publicAssetBaseUrl,
   remotePatterns: [
     ...(publicAssetHost
       ? [{ protocol: "https", hostname: publicAssetHost }]

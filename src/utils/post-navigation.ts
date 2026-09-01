@@ -10,15 +10,6 @@ type NavigablePost = {
   }
 }
 
-export function selectAdjacentPosts<TPost extends NavigablePost>(posts: readonly TPost[], current: TPost) {
-  const currentIndex = posts.findIndex((post) => post.id === current.id)
-
-  return {
-    newer: currentIndex > 0 ? posts[currentIndex - 1] : undefined,
-    older: currentIndex >= 0 && currentIndex < posts.length - 1 ? posts[currentIndex + 1] : undefined,
-  }
-}
-
 export function selectRelatedPosts<TPost extends NavigablePost>(posts: readonly TPost[], current: TPost, limit = 3): TPost[] {
   const currentTags = new Set(current.data.tags.map((tag) => normalizeTagSlug(tag)))
   const currentCategory = normalizeCategorySlug(current.data.category)
